@@ -1,0 +1,48 @@
+1.target(a标签属性)
+target="_blank"（开辟新窗口，增加新选项卡）  
+target="_self"（默认属性 当前页面打开，覆盖当前页面）  
+target="_top" 在顶级页面打开
+arget="_partent" 在父级页面打开
+
+2.sub(小标) sup（上标）
+
+3. <a name="tips">hello</a>
+   <a href="#tips">跳转到hello</a>
+
+
+4.<ul><li></li><li></li></ul> 无序列表 type="squre" 控制序号的图形 
+  <ol><li></li><li></li></ol> 有序列表 start="100" 控制序号的起始大小 
+  <dl><dt><dd></dd></dt><dt><dd></dd></dt></dl> 自定义列表 
+
+5.html块元素 每次都会以一个新行开始
+<h1></h1> <p></p> <ul></ul> <div></div>
+
+
+html内联元素  不会以新行开始
+<b></b> <a></a>  <img/> <span></span>
+
+
+6.框架标签
+<frameset rows="20%,60%,20%"> 横向排列 rows  纵向排列 cols
+     <frame src="www.baidu.com"></frame>
+     <frame src="www.baidu.com"></frame>
+     <frame src="www.baidu.com"></frame>
+</frameset>
+<frameset> HTML5中已经过失
+
+
+<iframe> 内联框架
+<iframe src="www.baidu.com"  frameborder="0" width="400px" height="400px"></iframe>
+
+7.html实体  &lt;小于号(<) &gt;大于号(>)  &nbsp;空格 
+
+8.XHTML元素语法
+1.元素必须正确嵌套
+2.元素必须始终关闭
+3.元素必须小写
+4.文档必须有一个根元素
+
+
+
+
+

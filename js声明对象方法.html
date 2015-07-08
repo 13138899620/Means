@@ -1,0 +1,46 @@
+<html>
+<head>
+    <title>test</title>
+    <script type="text/javascript">
+        function Animal(type) {
+            this.name = "Pony",
+            this.type = type,
+            this.init = function () {
+                return "我的名字是：" + this.name + "，我的类型是：" + type;
+            }
+        }
+
+
+        var animal = new Animal("CEO");
+        animal.name = "Tom";
+        animal.type = "CTO";
+
+        var Book = {
+            name: "红楼梦",
+            type: "文学作品",
+            Description: "四大名著",
+            GetAuthor: function () {
+                return "Author is 曹雪芹";
+            }
+        }
+
+
+
+
+
+
+        var Gender = new function () {
+            this.type = "boy",
+            this.speaking = function (type) {
+                return "我是" +type;
+            }
+        }
+
+
+        alert(Gender.speaking("123"));
+    </script>
+</head>
+<body>
+
+</body>
+</html>

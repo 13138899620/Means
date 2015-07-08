@@ -1,0 +1,26 @@
+row_number() over(order by username) 返回一列自增的列
+select ROW_NUMBER() over(order by username) as id, * from #Form 
+
+
+sql行转列，列转行
+CREATE TABLE tb(姓名 VARCHAR(10),课程 VARCHAR(10),分数 INT)
+
+insert into tb VALUES ('张三','语文',74)
+insert into tb VALUES ('张三','数学',83)
+insert into tb VALUES ('张三','物理',93)
+insert into tb VALUES ('李四','语文',74)
+insert into tb VALUES ('李四','数学',84)
+insert into tb VALUES ('李四','物理',94)
+
+select 姓名,
+max(case 课程 when '语文' then 分数 else '0' end) as '语文',
+max(Case 课程 when '数学' then 分数 else 0 end) as '数学',
+max(case 课程 when '物理' then 分数 else 0 end) as '物理'
+into #Form
+from tb group by 姓名
+
+ select 姓名,课程='语文',分数=语文 from #Form
+ union
+ select 姓名,课程='数学',分数=数学 from #Form
+ union
+ select 姓名,课程='物理',分数=物理 from #Form

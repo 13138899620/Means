@@ -1,0 +1,17 @@
+shift:从集合中把第一个元素删除，并返回这个元素的值。
+
+unshift: 在集合开头添加一个或更多元素，并返回新的长度
+
+push:在集合中添加元素，并返回新的长度
+
+pop:从集合中把最后一个元素删除，并返回这个元素的值。
+
+splice(index,length) 删除数组指定位置（index 下标）的指定长度（length)个元素
+
+Array.prototype.slice.call(arguments) 将字符串转换为一个数组
+
+字符串转换为数组
+  for (var i = 0; i < n.length; i++) {
+            arr.push(n.charAt(i));
+        }
+

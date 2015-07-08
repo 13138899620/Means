@@ -1,0 +1,173 @@
+Raszor视图引擎
+
+Raszor就是区分服务器端代码和其他代码的一种标记语言
+
+注释：@*{
+            ViewBag.Title = "Index";
+    	    Layout = "~/Views/Shared/_Layout.cshtml";
+	}*@
+
+
+Raszor的三种基本形式 每行以“；”号结尾
+
+单行标记（Single Line)  @{ var name="Mr-Yang";}  @{Response.Write("Single Line:Name is:"+name+"<br/>";}
+行内标记（Inline)       InLine: Name is @name <br/> Today is:@DateTime.Now.ToString("yyyy-MM-dd")<br/>
+多行标记（Multi-Line) @{
+			 	var age=20;
+			 	Response.Write("Multi-Line:"+age);
+			}
+
+三种Raszor标记执行顺序：
+服务器在这个文件中逐行搜寻Razor标记中的C#代码，如果读到的是C#单行或多行代码，就执行它。执行后输出的结果就是上面代码中绿色的部分。
+如果搜寻到了行内代码，就把这一段代码替换成代码对应的值，对应上面代码中黄色部分。这样把这个文件处理一遍之后。
+
+然后服务器会把文件中所有非Razor标记的代码写入要输出的文件，对应上面代码中蓝色和黄色部分。
+
+
+keyword(){}语法
+
+@if (1 < 0)
+{
+    Response.Write("1<2");
+}
+else
+{
+    Response.Write("1>2");
+}
+
+@for(int i=0;i<10;i++)
+{
+    Response.Write("For:" + i+"<br/>");
+}
+
+
+服务器代码里嵌入html代码
+
+在Razor标记的代码中如果有成对的html标记，则这个标记及其内容会被当作普通文本输出。
+如上面的 <p>var name2 = "Slark";</p>
+
+在Razor标记的代码中如果有"@:"，则其后的一行代码会被当作普通文本输出。
+如上面的 @:var name3 = "Slark";<br />
+
+在Razor标记的代码中如果有<text>...</text>标记，则其内容会被当作普通文本输出。
+如上面的 <text> var name4 = "Slark";<br /> var name5 = "Slark"; </text>
+
+
+
+HtmlHelper（System.Web.Mvc.HtmlHelper对象，拥有呈现HTML元素）
+
+AcitonLink
+@Html.ActionLink("点我吧", "Default");
+@Html.ActionLink("点我吧 我是First", "Index","First");
+@Html.ActionLink("点我吧 我是Default", "Default", new { id = 1 });
+@Html.ActionLink("点我吧 我是First", "Default","First", new { id = 1 },null);
+
+RouteLink
+@Html.RouteLink("点我吧", new { action="Default",id=1});
+@Html.RouteLink("点我吧 我是First", new { action = "Default",controller="First", id = 1 });
+@Html.RouteLink("点我吧 我是First", new { action = "Index", controller="First", id = 1 });
+
+DropDownList
+@{
+	List<SelectListItem> list = new List<SelectListItem>();
+        for (int i = 0; i < 10; i++)
+        {
+		SelectListItem Item = new SelectListItem();
+                Item.Text = "我是：" + i;
+                Item.Value = i.ToString() ;
+                Item.Selected = (i == 2);
+                list.Add(Item);
+        }
+}
+@Html.DropDownList("DdlTest",list)
+
+
+添加属性
+@Html.TextBox("NameId", "Value", new { @class = "classText",@style="width:200px" })
+
+
+Form表单
+@using (Html.BeginForm("Default", "Default", new{id=11},FormMethod.Get))
+{
+	@Html.TextBox("txtUserName")
+	<input type="submit" value="提交" />
+}
+
+
+
+@{Html.BeginForm("Default", "Default", new { id = 11 }, FormMethod.Get);}
+@{Html.EndForm();}
+
+
+使用TagBuilder创建自定义标签
+using System.Web.Mvc;
+public static class HtmlExtensions
+{
+    /// <summary>
+    /// 自定义一个@html.Submit()
+    /// </summary>
+    /// <param name="helper"></param>
+    /// <param name="value">value属性</param>
+    /// <returns></returns>
+    public static MvcHtmlString Submit(this HtmlHelper helper, string value)
+    {
+        var builder = new TagBuilder("input");
+        builder.MergeAttribute("type", "submit");
+        builder.MergeAttribute("value", value);        
+        return MvcHtmlString.Create(builder.ToString(TagRenderMode.SelfClosing)); 
+　　}
+}
+
+调用
+@Html.Submit("SubmitButton")
+
+
+强类型HtmlHelper（结尾带For的标签 如：TextBoxFor(m=>m.Name) ）
+强类型会用到MVC中的Model，而弱类型不用。
+需要在view视图中加入一行代码 (@model Models.Employees) 标识为强类型HtmlHelper
+
+返回对象的值到视图中
+public ActionResult DefaultAction()
+{	
+	Simple s = new Simple();
+        s.Name= "Slark";
+        return View(s);
+}
+
+
+
+
+LabelFor数据标签
+
+using System.ComponentModel.DataAnnotations;
+
+namespace SlarkInc.Models
+{    
+    public class Simple
+    {
+        [Display(Name = "Name")]
+        public string Name { get; set; }
+
+        [Display(Name = "E-mail")]
+　　  　 public string Email { get; set; }
+    }
+}
+
+
+@Html.LabelFor(m => m.Email)   调用的就是[Display(Name = "Name")]的值   最终生成Label为标签描述文本框的文字
+: @Html.TextBoxFor(m => m.Email)
+
+
+
+DisplayFor 和 EditorFor显示和编辑Model数据
+[Display(Name = "E-mail")]
+[DataType(DataType.EmailAddress)]       
+public string Email { get; set; }
+
+根据DataType的类型生成标签
+@Html.DisplayFor(m => m.Email)
+@Html.EditorFor(m => m.Email)
+
+
+
+

@@ -1,0 +1,8 @@
+select CONVERT(varchar(10),getdate(),120)  datetime转字符串
+
+select DATEADD(day,1,getdate()) 时间增加
+
+select DATEDIFF(day,getdate(),DATEADD(day,1,getdate())) 取时间差
+
+
+@-moz-document url-prefix(){.flexslider .slides > li{ margin-left:-798px; }}

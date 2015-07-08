@@ -1,0 +1,23 @@
+快速打开控制台：ctrl+shift+i和f12
+切换隐身模式：ctrl+shift+n
+进入“下载内容”页面：Ctrl+J	
+查看“历史记录”页面：Ctrl+H	
+将此页加入书签：Ctrl+D
+打开/关闭 搜索框（搜索页面内的文字）：ctrl+F
+新建标签页：Ctrl+T
+关闭标签页：Ctrl+W
+放大页面：Ctrl++	
+缩小页面：Ctrl+-	
+重新打开最近关闭的一个标签：Ctrl+Shift+T
+新建一个窗口：Ctrl+N
+
+从左到右，标签循环浏览：ctrl+Tab	
+从右到左，标签循环浏览：Ctrl+Shift+Tab	
+
+分别指向第1、2、3…8标签：Ctrl+1-8	
+跳转到最后一个标签：Ctrl+9	
+
+打开“清除浏览数据”窗口：Ctrl+Shift+Del	
+开打Chrome任务管理器：Shift+Esc	
+
+在当前标签打开首页：Alt+Home

@@ -1,0 +1,26 @@
+http://www.cnblogs.com/bydongxin/p/3968992.html
+
+
+
+//øÏÀŸ≈≈–Ú
+        public static void KuaiSu(int[] arry, int low, int hight)
+        {
+            int middle = arry[(low + hight) / 2];
+            int i = low;
+            int j = hight;
+            do
+            {
+                while (i < hight && middle > arry[i]) i++;
+                while (j > low && middle < arry[j]) j--;
+                if (i <= j)
+                {
+                    int temp = arry[i];
+                    arry[i] = arry[j];
+                    arry[j] = temp;
+                    i++;
+                    j--;
+                }
+            } while (i <= j);
+            if (i < hight) KuaiSu(arry, i, hight);
+            if (low < j) KuaiSu(arry, low, j);
+        }

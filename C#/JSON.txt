@@ -1,0 +1,39 @@
+JavaScript 对象表示法（JavaScript Object Notation)
+JSON是一种轻量级的数据交换格式
+
+eval（json字符串-〉js对象） 速度快，可以编译任何javascript代码，会产生安全问题
+var jsonStr = '{"name": "hanzichi", "sex": "male"}';
+var ans=eval('('+jsonStr+')');
+
+JSON.parse(json字符串-〉js对象）  JSON解析器，只接受JSON文本，更安全
+var jsonStr = '{"name": "hanzichi", "sex": "male"}';
+var obj = JSON.parse(jsonStr);
+
+JSON.stringify（js对象-〉json字符串）
+var obj = {name: 'hanzichi', sex: 'male', age: '10'};
+var jsonStr = JSON.stringify(obj);
+
+
+
+IE8以下版本需引入json2.js
+
+
+1.后台没有指定返回数据格式时，浏览器默认会认为返回的为字符串格式数据所以需要通过eval或JSON.parse()方法来将数据解析为json格式
+
+var data=eval("("+json+")");  而eval()则可以解析任何字符串，eval是不安全的。
+var data=JSON.parse(json);    JSON.parse()之可以解析json格式的数据，并且会对要解析的字符串进行格式检查，如果格式不正确则不进行解析
+(有些低级的浏览器不支持JSON.parse,但可以引入json2.js文件来解决该问题)
+
+
+2..对于服务器返回的JSON字符串，如果jquery异步请求将type（一般为这个配置属性）设为“json”，
+或者利用$.getJSON()方法获得服务器返回，那么就不需要eval（）方法了，因为这时候得到的结果
+已经是json对象了，只需直接调用该对象即可
+
+
+3.JSON.stringify()用于将对象解析为json格式字符串
+
+
+
+
+
+

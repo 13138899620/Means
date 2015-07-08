@@ -1,0 +1,106 @@
+1.基于外键关联的单向一对一关系（B为主键表，A为外键表）
+
+.HasRequired(A => A.B)   
+表示：1）实体A与实体B是一对一关系，实体A有一个导航属性A.B；
+      2）在数据库中表A与表B存在一对一关联（INNER JOIN）。
+
+
+.WithMany()
+ 表示：1） 实体B与实体A可以没有关系，也可以是一对多关系；
+       2）在数据库中表A与表B存在外键关联。
+
+
+添加外键关系
+protected override void OnModelCreating(DbModelBuilder modelBuilder)
+{
+     modelBuilder.Entity<BlogSite>().HasRequired(b => b.BlogUser).WithMany().HasForeignKey(b => b.UserID);
+}
+
+外键表
+public partial class BlogSite
+    {
+        public int BlogId { get; set; }
+        public string BlogApp { get; set; }
+        public bool IsActive { get; set; }
+        public int UserID { get; set; }
+        public virtual BlogUser BlogUser { get; set; }
+    }
+
+主表
+ public partial class BlogUser
+    {
+        public int UserID { get; set; }
+        public string Author { get; set; }
+       
+    }
+
+
+
+2.对于“基于共享主键的单向一对一”关系，Entity Framework中正确的映射关系定义是：  （A表对应A.B导航熟性）
+
+modelBuilder.Entity<A>().HasRequired(a => a.B).WithRequiredPrincipal();
+
+
+public class A
+{
+    public int AID { get; set; }
+    public string Title { get; set; }
+    [Required]
+    public B B { get; set; }
+}
+
+ public class B
+{
+        public int AID { get; set; }
+        public string Body { get; set; }
+}
+
+A的AID属性可以设置为自增，但B的不可以
+
+
+
+3.双向一对一关系（各自引用对方主键）
+ public partial class BlogUser
+    {
+        public int UserID { get; set; }
+        public string Author { get; set; }
+        public int BlogID { get; set; }
+        public virtual BlogSite BlogSite { get; set; }
+    }
+
+ public partial class BlogSite
+    {
+        public int BlogId { get; set; }
+        public string BlogApp { get; set; }
+        public bool IsActive { get; set; }
+        public int UserID { get; set; }
+        public virtual BlogUser BlogUser { get; set; }
+    }
+
+modelBuilder.Entity<BlogSite>().HasRequired(b => b.BlogUser).WithMany().HasForeignKey(b => b.UserID);
+modelBuilder.Entity<BlogUser>().HasRequired(b => b.BlogSite).WithMany().HasForeignKey(b => b.BlogID);
+
+
+4.一对多关系 （一对多，one-to-many）
+public partial class BlogSite
+    {
+        public int BlogId { get; set; }
+        public string BlogApp { get; set; }
+        public bool IsActive { get; set; }
+        public int UserID { get; set; }
+        public virtual BlogUser BlogUser { get; set; }
+        public virtual ICollection<BlogPost> BlogPosts { get; set; }
+    }
+
+public class BlogPost
+    {
+        public int ID { get; set; }
+        public string Title { get; set; }
+        public int BlogID { get; set; }
+        public BlogSite BlogSite { get; set; }
+    }
+
+
+   modelBuilder.Entity<BlogSite>()
+            .HasMany(b => b.BlogPosts)
+            .WithRequired(p => p.BlogSite).HasForeignKey(p=>p.BlogID);

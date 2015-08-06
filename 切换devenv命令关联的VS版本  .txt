@@ -1,0 +1,11 @@
+方法1：
+S1、Run->Regedit，打开注册表编辑器；
+S2、定位到：My Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\devenv.exe；
+S3、将此Key的Value设置成你的目标VS版本即可，如：
+假设VS都安装在C盘，那么有：
+VS2005：C:\Program Files\Microsoft Visual Studio 8\Common7\IDE\devenv.exe
+VS2008：C:\Program Files\Microsoft Visual Studio 9.0\Common7\IDE\devenv.exe
+
+方法2：
+还有一种解决方法就是：给后安装的其它版本的VS添加一个新的命令。
+..\AppPaths目录下新建一个Key，名字和devenv区别开，然后将其键值设置成目标VS的路径即可；

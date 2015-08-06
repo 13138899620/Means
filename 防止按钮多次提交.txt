@@ -1,0 +1,32 @@
+    $(function(){
+        $("#AddComent").bind('click',function(){AddComment()});
+    });
+
+    function AddComment() {
+        //防止按钮多次提交
+        $("#AddComent").unbind("click");
+        //保存
+        var score=$("#EvaluationStar").val();
+        if(parseFloat($("#EvaluationStar").val())<0.5)
+        {
+            $(".text-total").hide();
+            $("#commentEmpty").hide();
+            $("#commentReg").hide();
+            $("#commentStar").show();
+            return;
+        }
+
+        var canSubmit = calculate_length();
+        if(!canSubmit)
+            return ;
+        var myComment = $("#tbComment").val();
+        var reg = new RegExp("<([^<>]*)>");
+        if (reg.test(myComment)) {
+            $(".text-total").hide();
+            $("#commentEmpty").hide();
+            $("#commentStar").hide();
+            $("#commentReg").show();
+            return;
+        }   
+        PageMethods.AddComment(oaeid,myComment,$("#EvaluationStar").val(), function() { updateComments('add');
+    }

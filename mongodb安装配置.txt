@@ -1,0 +1,10 @@
+以管理员运行cmd.exe
+
+cd C:\Program Files\mongodb\bin  //安装目录
+
+C:\Program Files\mongodb\bin>mongod --dbpath "C:\Program Files\mongodb\data\db" --logpath "C:\Program Files\mongodb\data\log\MongoDB.log" --install --serviceName "MongoDB"
+
+这里MongoDB.log就是开始建立的日志文件，--serviceName "MongoDB" 服务名为MongoDB  //注意需先新建数据库文件夹和日志文件夹
+
+启动服务：net start mongodb
+停止服务:net stop mongodb

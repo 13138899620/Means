@@ -70,3 +70,9 @@ chrome浏览器快捷键
 开打Chrome任务管理器：Shift+Esc	
 
 在当前标签打开首页：Alt+Home
+
+
+
+sqlserver
+ctrl+shift+u 小写转大写 
+ctrl+shift+l 大写转小写

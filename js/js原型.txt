@@ -1,0 +1,166 @@
+1.在javascript中，原型也是一个对象，通过原型可以实现对象的属性继承，JavaScript的对象中都包含了一个"[[Prototype]]"的内部属性，这个属性所对应的就是该对象的原型
+
+对象才具有"[[Prototype]]"属性，作为对象的内部属性，是不能被直接访问的。所以为了方便查看一个对象的原型，Firefox和Chrome中提供了"__proto__"这个非标准（不是所有浏览器都支持）的访问器（ECMA引入了标准对象原型访问器"Object.getPrototypeOf(object)"）。
+
+
+
+
+2.在JavaScript中，每个函数都有一个prototype属性，当一个函数被用作构造函数来创建实例时，该函数的prototype属性值将被作为原型赋值给所有对象实例（也就是设置实例的__proto__属性），也就是说，所有实例的原型引用的是函数的prototype属性。
+
+
+function Person(name, age){
+    this.name = name;
+    this.age = age;
+    
+    this.getInfo = function(){
+        console.log(this.name + " is " + this.age + " years old");
+    };
+}
+
+var will = new Person("Will", 28);
+
+
+console.log(will.__proto__);  
+输出:will.__proto__==Person.prototype  Person{}
+分析:函数的prototype属性值将被作为原型赋值给所有对象实例（也就是设置实例的__proto__属性）
+
+console.log(will.constructor);  
+输出: function Person(name, age){}
+分析:constructor属性对应创建所有指向该原型的实例的构造函数。
+
+console.log(Person.prototype.__proto__);
+输出:Object{};
+分析:所有对象的原型都将追溯到"Object {}"对象。
+
+console.log(Person.prototype.constructor === Person);
+输出：true
+分析:Person.prototype.constructor=function Person(name,age)
+
+3.查看对象Object的原型
+console.log(Person.prototype.__proto__ === Object.prototype);
+输出:true;
+分析:Person.prototype.__proto__==Object{};
+
+
+console.log(typeof Object);
+输出：Function
+分析:Object对象本身是一个函数对象。
+
+
+console.log(Object.prototype); 
+输出:Object{}
+
+
+console.log(Object.prototype.__proto__);
+输出:null
+分析:当通过"Object.prototype.__proto__"获取Object原型的原型的时候，将会得到"null"，也就是说"Object {}"原型对象就是原型链的终点了。
+
+console.log(Object.prototype.constructor);
+输出:function Object(){}
+
+
+
+
+
+
+
+
+
+console.log(Person.__proto__ === Function.prototype);
+输出:true
+分析: 在JavaScript中有个Function对象（类似Object），这个对象本身是个函数；所有的函数（包括Function，Object）的原型（__proto__）都是"Function.prototype"。
+
+console.log(Person.constructor === Function)
+输出:true
+分析:Person.constructor=Function 
+Function();
+
+console.log(typeof Function);
+输出:function
+
+console.log(Function);
+
+console.log(Function.prototype);
+输出:function anonymous();
+
+console.log(Function.prototype.__proto__);
+输出:Object{};
+
+console.log(Function.prototype.constructor);
+输出:function Function();
+
+
+在JavaScript中有个Function对象（类似Object），这个对象本身是个函数；所有的函数（包括Function，Object）的原型（__proto__）都是"Function.prototype"。
+Function对象作为一个函数，就会有prototype属性，该属性将对应"function () {}"对象。
+Function对象作为一个对象，就有"__proto__"属性，该属性对应"Function.prototype"，也就是说，"Function.__proto__ === Function.prototype"
+对于Function的原型对象"Function.prototype"，该原型对象的"__proto__"属性将对应"Object {}"
+
+
+4.对于所有的对象，都有__proto__属性，这个属性对应该对象的原型
+
+对于函数对象，除了__proto__属性之外，还有prototype属性，当一个函数被用作构造函数来创建实例时，该函数的prototype属性值将被作为原型赋值给所有对象实例（也就是设置实例的__proto__属性）
+
+
+5.(1)运用,通过为函数的Person.prototype属性赋值，为对象添加getInfo方法
+function Person(name, age){
+    this.name = name;
+    this.age = age;
+}
+
+Person.prototype.getInfo = function(){
+    console.log(this.name + " is " + this.age + " years old");
+};
+
+
+(2)Person.prototype.MaxNumber 为对象实例添加属性，Person.__proto__.MinNumber 为函数Person添加属性
+function Person(name, age){
+    this.name = name;
+    this.age = age;
+}
+
+Person.prototype.MaxNumber = 9999;
+Person.__proto__.MinNumber = -9999;
+
+var will = new Person("Will", 28);
+
+console.log(will.MaxNumber);
+// 9999
+console.log(will.MinNumber);
+// undefined
+
+
+（3）属性隐藏
+当通过原型链查找一个属性的时候，首先查找的是对象本身的属性，如果找不到才会继续按照原型链进行查找。
+
+这样一来，如果想要覆盖原型链上的一些属性，我们就可以直接在对象中引入这些属性，达到属性隐藏的效果。
+
+function Person(name, age){
+    this.name = name;
+    this.age = age;
+}
+
+Person.prototype.getInfo = function(){
+    console.log(this.name + " is " + this.age + " years old");
+};
+
+var will = new Person("Will", 28);
+will.getInfo = function(){
+    console.log("getInfo method from will instead of prototype");
+};
+
+will.getInfo();
+// getInfo method from will instead of prototype
+
+
+(4)
+
+
+在这个例子中分别给"Person.prototype "和" Person.__proto__"这两个原型对象添加了"MaxNumber "和"MinNumber"属性，这里就需要弄清"prototype"和"__proto__"的区别了。
+
+"Person.prototype "对应的就是Person构造出来所有实例的原型，也就是说"Person.prototype "属于这些实例原型链的一部分，所以当这些实例进行属性查找时候，就会引用到"Person.prototype "中的属性。
+
+console.log(Person.MinNumber); 输出
+:-9999
+
+总结:函数都有一个prototype属性,对象有__proto__属性，对象的__proto__属性是函数的prototype属性
+

@@ -39,6 +39,9 @@ var name = "The Window";
     }
 
 alert(object.getNameFunc()());  //The Window
+//object.getNameFunc()()
+this关键字在执行的时候才能确定是谁。所以this永远指向调用者，即对‘调用对象‘者的引用。
+object.getNameFunc()调用返回一个函数。这是个返回的函数，它不在是object的属性或者方法，此时调用者是window。因此输出是 The Window
 
 
 var name = "The Window";
@@ -53,3 +56,64 @@ var name = "The Window";
     }
 
 alert(object.getNameFunc()());  //My Object"
+////object.getNameFunc()()
+this关键字在执行的时候才能确定是谁。所以this永远指向调用者，即对‘调用对象‘者的引用。
+方法声明时，此时的this值得是object,将this赋值给that，that.name 自然就是调用object对象的name属性
+
+
+事例2：
+ var array = [];
+
+            function Nico()
+            {
+                for(var i=0;i<10;i++)
+                {
+                    var nico = (function () {
+                        return i;
+                    });
+                   
+                    array.push(nico);
+                }
+            }
+
+            Nico();
+
+            for(var i=0;i<10;i++)
+            {
+                console.log(array[i]());
+            }
+
+
+输出:循环输出10次10
+分析: 因为嵌套函数并没有被立即执行，所以循环10次之后只是保存10个这样的函数 function(){ return i; }，调用Nico函数把这10个 函数保存在数组中，在最后循环数组输出的时候再返回 i 值，但是那时候for循环已经结束了，i 为10，所以执行结果便是弹出10个10；
+
+
+循环数组输出的时候，Noic内部的for循环已经结束了，i=10，所以执行结果return 10
+
+
+
+
+ var array = [];
+
+            function Nico()
+            {
+                for(var i=0;i<10;i++)
+                {
+                    var nico = (function () {
+                        return i;
+                    })(); //
+                   
+                    array.push(nico);
+                }
+            }
+
+            Nico();
+
+            for(var i=0;i<10;i++)
+            {
+                console.log(array[i]);
+            }
+
+输出:循环输出10次10
+分析:每一次循环，匿名函数都会被立即执行，并把对应的i作为返回值存在nico变量中，并放入数组中
+数组中存着10个函数的返回值而不是函数

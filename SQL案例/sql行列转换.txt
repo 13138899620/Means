@@ -1,0 +1,34 @@
+create table tb( ﹎ varchar(10),揭祘 varchar(10),だ计 int)
+
+insert into tb values('眎','粂ゅ',74)
+
+insert into tb values('眎','计厩',83)
+
+insert into tb values('眎','瞶',93)
+
+insert into tb values('','粂ゅ',74)
+
+insert into tb values('','计厩',84)
+
+insert into tb values('','瞶',94)
+
+go
+
+select * from tb
+
+
+select ﹎,
+	   max(case 揭祘 when '粂ゅ' then だ计 else 0 end) as '粂ゅ',
+	   max(case 揭祘 when '计厩' then だ计 else 0 end) as '计厩',
+	   max(case 揭祘 when '瞶' then だ计 else 0 end) as '瞶'
+ from tb group by ﹎
+select * from tb
+select * from #Form1
+
+select ﹎,揭祘='粂ゅ',だ计=粂ゅ from #Form1
+union
+select ﹎,揭祘='计厩',だ计=计厩 from #Form1
+union
+select ﹎,揭祘='瞶',だ计=瞶 from #Form1
+
+

@@ -1,0 +1,15 @@
+declare @recipients varchar(max)
+declare @cursor_recipients cursor
+set @cursor_recipients=cursor for
+select distinct substring(EmpInfo,1,charindex('_',EmpInfo)-1) as empid from #Form
+open @cursor_recipients
+fetch next from @cursor_recipients into @recipients
+while(@@fetch_status=0)
+begin
+	set @recipients=@recipients+'@sz.unimicron.com;'
+	fetch next from @cursor_recipients into @recipients
+end
+close @cursor_recipients
+deallocate @cursor_recipients 
+
+select @recipients

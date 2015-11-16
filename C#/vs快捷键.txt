@@ -1,5 +1,12 @@
 快速启动sqlserver: ssms
-快速启动vs:  devenv 
+快速启动vs:  devenv
+快速启动IIS：inetmgr
+快速启动任务管理器：taskmgr
+控制面板：control
+计算机：calc
+记事本:notepad
+画图：mspaint
+VS的"建议完成模式"和"标准模式"，两者间切换按快捷键：Ctrl+Alt+空格键
 
 Ctrl+K,S 插入外部代码块
 Ctrl+E,D（ctrl+k,d） ----格式化全部代码
@@ -64,3 +71,9 @@ chrome浏览器快捷键
 开打Chrome任务管理器：Shift+Esc	
 
 在当前标签打开首页：Alt+Home
+
+
+
+sqlserver
+ctrl+shift+u 小写转大写 
+ctrl+shift+l 大写转小写

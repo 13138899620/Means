@@ -1,0 +1,12 @@
+ /*点击空白处关闭弹出窗体：
+              判断点击事件发生在区域外的条件是：
+              1. 点击事件的对象不是目标区域本身
+              2. 事件对象同时也不是目标区域的子元素
+              */
+            $(document).mouseup(function (e) {
+                var _con = $('#popbox');   // 设置目标区域，需要关闭的窗口
+                if (!_con.is(e.target) && _con.has(e.target).length === 0) { // Mark 1
+                    hrc.box.close(); // 功能代码
+                }
+            });
+

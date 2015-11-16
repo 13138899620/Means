@@ -1,0 +1,118 @@
+-- =============================================                
+-- Author:  陽毅                
+-- Create date: 2015-01-17 15:27:00                
+-- Description: 人力需求單  判斷該單位各編制是否已滿                 
+-- =============================================       
+      
+CREATE procedure Form_FormLabourSupple      
+@UnitId varchar(10),      
+@PersonCoutn int,      
+@Field varchar(20),            
+@MaxEmpCount int output,           
+@NowEmpCount int output          
+as      
+begin      
+ --動態sql語句 獲取當前職等區間所規定的編制人數      
+ declare @sql nvarchar(max)      
+ set @sql='select @MaxEmpCount='+ @Field+' from uszerp.newerp.dbo.Psn_CompanyStructDetail where unitid=@UnitId'      
+ exec sp_executesql @sql,N'@UnitId nvarchar(20),@MaxEmpCount int output',@UnitId,@MaxEmpCount output      
+ select @MaxEmpCount      
+       
+       
+ --獲取當前職等區間所在職的非管理職編制人數      
+ create table #Form      
+ (      
+  PlaceId varchar(10)      
+ )      
+ if @Field='place1to3'      
+  begin      
+   insert into #Form values('01')      
+   insert into #Form values('02')      
+   insert into #Form values('03')      
+  end      
+ if @Field='notmanager4to5'      
+  begin      
+   insert into #Form values('04')      
+   insert into #Form values('05')      
+  end      
+ if @Field='notmanager6to7'      
+  begin      
+   insert into #Form values('06')      
+   insert into #Form values('07')      
+  end      
+ if @Field='notmanager8to9'      
+  begin      
+   insert into #Form values('08')      
+   insert into #Form values('09')      
+  end      
+ if @Field='place10to11'      
+  begin      
+   insert into #Form values('10')      
+   insert into #Form values('11')      
+  end      
+ if @Field='place12to13'      
+  begin      
+   insert into #Form values('12')      
+   insert into #Form values('13')      
+  end      
+ if @Field='place14to22'      
+  begin      
+   insert into #Form values('14')      
+   insert into #Form values('15')      
+   insert into #Form values('16')      
+   insert into #Form values('17')      
+   insert into #Form values('18')      
+   insert into #Form values('19')      
+   insert into #Form values('20')      
+   insert into #Form values('21')      
+   insert into #Form values('22')      
+  end      
+       
+ select @NowEmpCount=count(*) from uszerp.newerp.dbo.empbas t1 left join uszerp.newerp.dbo.PositionTab t2 on t1.positionid=t2.positionid              
+ where t1.unitid=@UnitId and t1.empstatus=0 and t1.placeid in (select placeid from #Form) and t2.ismanager='N'        
+       
+ drop table #Form      
+       
+ select @MaxEmpCount,@NowEmpCount      
+      
+ --如果現在在職人員加上申請的人數 大於所規定編制人員則返回1                
+  if @NowEmpCount+@PersonCoutn>@MaxEmpCount                
+  begin                
+   return 1                
+  end                
+  else                
+  begin                
+   return 0                
+  end                
+end
+
+
+
+
+.Net調用
+
+public bool Form_FormLabourSupple(string UnitId, int PersonCoutn, string Field, out int MaxEmpCount, out int NowEmpCount)
+{
+            SqlParameter[] parmaeters = { 
+                                            new SqlParameter("@UnitId",UnitId),
+                                            new SqlParameter("@PersonCoutn",PersonCoutn),
+                                            new SqlParameter("@Field",Field),
+                                            new SqlParameter("@MaxEmpCount",SqlDbType.Int,4),
+                                            new SqlParameter("@NowEmpCount",SqlDbType.Int,4),
+                                            new SqlParameter("@return",SqlDbType.Int,4)
+                                        };
+            parmaeters[3].Direction = ParameterDirection.Output;
+            parmaeters[4].Direction = ParameterDirection.Output;
+            parmaeters[5].Direction = ParameterDirection.ReturnValue;
+            SqlHelper.ExecuteNonQuery(SqlHelper.ConnectionWorkFlow, CommandType.StoredProcedure, "Form_FormLabourSupple", parmaeters);
+            MaxEmpCount = int.Parse(parmaeters[3].Value.ToString());
+            NowEmpCount = int.Parse(parmaeters[4].Value.ToString());
+            if (int.Parse(parmaeters[5].Value.ToString()) == 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+}

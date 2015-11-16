@@ -1,0 +1,20 @@
+缓存对象（Cache)
+
+在ASP.NET中提供了两种缓存对象，HttpContext.Current.Cache和HttpRuntime.Cache，建议使用HttpRuntime.Cache
+
+区别：
+（1） HttpContext.Current.Cache 为当前Http请求获取的Cache对象，通俗来说就是由于此缓存封装在了HttpContext中，而HttpContext只局限于Web中，所以此缓存信息只能在Web中
+
+(2) HttpRuntime.Cache 获取当前当前应用程序的Cache,通俗来说就是此缓存信息虽然放在了System.Web命名空间下，但是非Web程序也可以使用此缓存
+
+
+
+为什么使用缓存？
+1.降低延迟，使响应速度加快
+2.降低网络传输，使响应速度加快
+3.缓存是为了使系统更加稳定和快速
+
+什么情况下使用缓存？
+1.数据可能会被频繁使用
+2,数据的访问不频繁，但是生命周期比较长，这样的数据建议也缓存起来，比如：淘宝的商品明细
+

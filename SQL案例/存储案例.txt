@@ -1,0 +1,369 @@
+-- =============================================                                      
+-- Author:  YangYi                                      
+-- Create date: 2015-04-01 10:32                                      
+-- Description: 快遞單每月Mail明細                                   
+-- =============================================                  
+CREATE procedure Form_MTL_ExpressManagementDtl_Mail                  
+as                  
+declare @StartTime datetime, -- 開始日期（上個月1號）                  
+  @EndTime datetime    -- 結束日期（本月1號）                  
+                  
+select @StartTime=convert(char(7),dateadd(month,-1,getdate()),120)+'-01 00:00:000'                  
+select @EndTime=convert(char(7),getdate(),120)+'-01 00:00:000'                  
+                  
+                  
+--創建臨時表存入上月簽核中和簽核完成的快遞單                  
+Create table #Form                  
+(                  
+ Id int identity(1,1),                  
+ PaperNO varchar(20),                  
+ IsSend int,                  
+ Status int,                  
+ EmpInfo varchar(20),                  
+ SendDate varchar(10),                  
+ CostUnitInfo varchar(60),                  
+ ExpressVendor varchar(20),                  
+ ExpressId varchar(20),                  
+ ExpressServiceItem varchar(20),                  
+ ExpressFileCategory varchar(10),                  
+ ExpressProductName varchar(50),                  
+ ExpressPerson varchar(50),                  
+ ExpressWeight varchar(10),                  
+ ExpressDetailSite varchar(50),                  
+ PredictCost varchar(10),                  
+ Description varchar(200)                  
+)                  
+                  
+--查詢簽核中和簽核完成的表單放入臨時表中                  
+Insert into #Form                  
+select PaperNO,IsSend,Status,empid+'_'+empname as EmpInfo,convert(varchar(10),SendDate,120) as SendDate,CostUnitId+'_'+CostUnitName as CostUnitInfo,                  
+ExpressVendor,ExpressId,ExpressServiceItem,ExpressFileCategory,ExpressProductName,ExpressPerson,ExpressWeight,ExpressDetailSite,PredictCost,Description                  
+from dbo.Form_MTL_ExpressManagementDtl where issend=1 and status in(0,1) and paperdate between @StartTime and @EndTime order by status,unitid                  
+                  
+                  
+                  
+--獲取郵件主旨內容                  
+declare @Subject varchar(20)                  
+select @Subject=convert(char(7),dateadd(month,-1,getdate()),120)+' 各單位快遞單信息'                  
+                  
+--獲取郵件內容信息                  
+declare @PaperNO varchar(20),                  
+  @EmpInfo varchar(20),                  
+  @SendDate varchar(10),                  
+  @CostUnitInfo varchar(50),                  
+  @ExpressVendor varchar(20),                  
+  @ExpressId varchar(20),                  
+  @ExpressServiceItem varchar(20),                  
+  @ExpressFileCategory varchar(10),                  
+  @ExpressProductName varchar(50),                  
+  @ExpressPerson varchar(50),                  
+  @ExpressWeight varchar(10),                  
+  @ExpressDetailSite varchar(50),                  
+  @PredictCost varchar(10),                  
+  @Description varchar(200),                  
+  @msg varchar(max)                  
+                  
+set @msg=''                                
+                                
+set @msg=@msg+'<table style="border-right: #333399 2px solid; border-top: #333399 2px solid; font-size: 9pt;                                            
+    border-left: #333399 2px solid; line-height: 20px; border-bottom: #333399 2px solid;                                            
+    border-collapse: collapse" width="1800">                                            
+   <tr>                                              
+                <td colspan="14" height="30" align="center" style="border-right: #333399 2px solid;                                            
+                    border-top: #333399 2px solid; font-size: 9pt; border-left: #333399 2px solid;                                            
+                    line-height: 20px; border-bottom: #333399 2px solid; border-collapse: collapse;                                            
+                    background-color: #333399">                                            
+                    <span style="color: #ffffff; font-size: 16pt; font-weight: bold">'+@Subject+'</span>                                            
+                </td>                                            
+            </tr>                                
+ <tr>                                
+    <td height="22"  width="120" style="font-weight: bold;font-size: 9pt;height: 16.5pt;                            
+     background-color: transparent;border:2px solid #333399" align="center">                                
+                    單號                                
+    </td>                                          
+<td height="22"  width="120" style="font-weight: bold;font-size: 9pt;height: 16.5pt;                            
+     background-color: transparent;border:2px solid #333399" align="center">                             
+                    寄件人                                          
+                </td>                                                   
+    <td height="22"  width="120" style="font-weight: bold;font-size: 9pt;height: 16.5pt;                            
+     background-color: transparent;border:2px solid #333399" align="center">                             
+    寄件日期                                
+                </td>                                                 
+    <td height="22"  width="150" style="font-weight: bold;font-size: 9pt;height: 16.5pt;                            
+     background-color: transparent;border:2px solid #333399" align="center">                             
+                    費用歸屬部門                                          
+                </td>                                
+    <td height="22"   width="80"  style="font-weight: bold;font-size: 9pt;height: 16.5pt;                            
+     background-color: transparent;border:2px solid #333399" align="center">                             
+                    快遞廠商                                         
+                </td>                                     
+    <td height="22"  width="120" style="font-weight: bold;font-size: 9pt;height: 16.5pt;                            
+     background-color: transparent;border:2px solid #333399" align="center">                             
+                    快遞單號                                          
+                </td>                                     
+    <td height="22"  width="80"  style="font-weight: bold;font-size: 9pt;height: 16.5pt;                            
+     background-color: transparent;border:2px solid #333399" align="center">                             
+                    服務項目                                         
+                </td>                                     
+    <td height="22"  width="80"  style="font-weight: bold;font-size: 9pt;height: 16.5pt;                            
+     background-color: transparent;border:2px solid #333399" align="center">                             
+                    快件類別                                         
+                </td>                            
+    <td height="22" width="80" style="font-weight: bold;font-size: 9pt; height: 16.5pt;                            
+     background-color: transparent;border:2px solid #333399" align="center">                             
+                    物品名稱                                        
+                </td>                                       
+                                               
+    <td height="22"   width="80" style="font-weight: bold;font-size: 9pt;height: 16.5pt;                            
+     background-color: transparent;border:2px solid #333399" align="center">                             
+                    寄件/收件對象                                
+                </td>                   
+ <td height="22"   width="80" style="font-weight: bold;font-size: 9pt;height: 16.5pt;                            
+     background-color: transparent;border:2px solid #333399" align="center">                             
+     重量                                
+                </td>                  
+ <td height="22"   width="200" style="font-weight: bold;font-size: 9pt;height: 16.5pt;                            
+     background-color: transparent;border:2px solid #333399" align="center">                             
+     具體地址                                
+   </td>                  
+ <td height="22"   width="80" style="font-weight: bold;font-size: 9pt;height: 16.5pt;                            
+     background-color: transparent;border:2px solid #333399" align="center">                             
+                    預估費用                               
+                </td>                  
+ <td height="22"   width="200" style="font-weight: bold;font-size: 9pt;height: 16.5pt;                            
+     background-color: transparent;border:2px solid #333399" align="center">                             
+                備註                                
+                </td>                   
+            </tr>'                          
+                          
+set @msg=@msg+'<tr>                                
+    <td height="22" colspan="14" style="font-weight: bold;font-size: 12pt; background-color: #FFB7DD;height: 16.5pt;                            
+     border:2px solid #333399" align="left">                                                     
+                    快遞單狀態:簽核中                                         
+                </td>                                            
+            </tr>'                                
+--查詢本月簽核中報廢單數據                       
+--從簽核完全的最大ID加一開始循環到#Form表中的所有的數據記錄數                                
+                    
+declare @i int,@j int                                
+set @i=1                                
+select @j=count(*) from #Form where issend=1 and status=0                          
+if @j>0                          
+begin                                
+while @i<=@j                             
+begin                  
+ select @PaperNO=PaperNO,@EmpInfo=EmpInfo,@SendDate=SendDate,@CostUnitInfo=CostUnitInfo,@ExpressVendor=ExpressVendor,@ExpressId=ExpressId,                  
+ @ExpressServiceItem=ExpressServiceItem,@ExpressFileCategory=ExpressFileCategory,@ExpressProductName=ExpressProductName,@ExpressPerson=ExpressPerson,                  
+ @ExpressWeight=ExpressWeight,@ExpressDetailSite=ExpressDetailSite,@PredictCost=PredictCost,@Description=Description                  
+ from #Form where id=@i and issend=1 and status=0                  
+                         
+ set @msg=@msg+'<tr>                                                  
+    <td height="22" style="font-weight: bold;font-size:9pt; background-color: transparent;height: 16.5pt;                            
+     border:2px solid #333399" align="center">                                             
+                    '+@PaperNO+'                                
+                </td>                                          
+                <td height="22" style="font-weight: bold;font-size:9pt; background-color: transparent;height: 16.5pt;                            
+     border:2px solid #333399" align="center">                                             
+                    '+@EmpInfo+'                                           
+                </td>                                                   
+                <td height="22" style="font-weight: bold;font-size:9pt; background-color: transparent;height: 16.5pt;                            
+     border:2px solid #333399"  align="center">                                             
+                    '+@SendDate+'                                
+                </td>                                    
+    <td height="22" style="font-weight: bold;font-size:9pt; background-color: transparent;height: 16.5pt;                            
+     border:2px solid #333399" align="center">                                             
+                    '+@CostUnitInfo+'                                          
+                </td>                                
+    <td height="22" style="font-weight: bold;font-size:9pt; background-color: transparent;height: 16.5pt;                            
+     border:2px solid #333399"  align="center">                                            
+                    '+@ExpressVendor+'                                          
+                </td>                                     
+    <td height="22" style="font-weight: bold;font-size:9pt; background-color: transparent;height: 16.5pt;                            
+     border:2px solid #333399"  align="center">                                             
+                    '+isnull(@ExpressId,'無')+'                                          
+                </td>                                     
+    <td height="22" style="font-weight: bold;font-size:9pt; background-color: transparent;height: 16.5pt;                            
+     border:2px solid #333399"  align="center">                                             
+                    '+@ExpressServiceItem+'                                          
+                </td>                                     
+    <td height="22" style="font-weight: bold;font-size:9pt; background-color: transparent;height: 16.5pt;                            
+     border:2px solid #333399"  align="center">                           
+                    '+@ExpressFileCategory+'                                          
+                </td>                                     
+    <td height="22" style="font-weight: bold;font-size: 9pt;height: 16.5pt;                            
+     background-color: transparent;border:2px solid #333399" align="center">                                             
+                    '+isnull(@ExpressProductName,'無')+'                                          
+                </td>                   
+ <td height="22" style="font-weight: bold;font-size: 9pt;height: 16.5pt;                            
+     background-color: transparent;border:2px solid #333399" align="center">                                             
+                    '+isnull(@ExpressPerson,'無')+'                                          
+                </td>         <td height="22" style="font-weight: bold;font-size: 9pt;height: 16.5pt;                            
+     background-color: transparent;border:2px solid #333399" align="center">                                             
+                    '+@ExpressWeight+'                                          
+                </td>                    
+ <td height="22" style="font-weight: bold;font-size: 9pt;height: 16.5pt;                            
+     background-color: transparent;border:2px solid #333399" align="center">                                             
+                    '+isnull(@ExpressDetailSite,'無')+'                                          
+                </td>                    
+ <td height="22" style="font-weight: bold;font-size: 9pt;height: 16.5pt;                            
+     background-color: transparent;border:2px solid #333399" align="center">                                             
+                    '+@PredictCost+'                         
+                </td>                      
+    <td height="22"  style="border-right: #333399 2px solid; border-top: #333399 2px solid;font-weight: bold;                                               
+                    font-size: 9pt; border-left: #333399 2px solid; line-height: 20px; border-bottom: #333399 2px solid;                                            
+                    border-collapse: collapse; background-color: #333399                                                          
+                    border-left: windowtext 0.5pt solid; border-bottom: windowtext 0.5pt solid; height: 16.5pt;                                        
+                    background-color: transparent" align="left">                                            
+                    '+isnull(@Description,'無')+'                                
+                </td>                              
+            </tr>'                                
+ set @i=@i+1                                
+end                          
+end                           
+                  
+else                   
+begin                          
+ set @msg=@msg+'<tr>                            
+    <td height="22" colspan="14" style="font-weight: bold;font-size: 9pt;height: 16.5pt;                            
+     background-color: transparent;border:2px solid #333399" align="center">                                                        
+                    無                                           
+                </td>                                            
+            </tr>'                            
+end                  
+                  
+                  
+set @msg=@msg+'<tr>                                
+    <td height="22" colspan="14" style="font-weight: bold;font-size: 12pt; background-color: #FFB7DD;height: 16.5pt;                            
+     border:2px solid #333399" align="left">                                                     
+                    快遞單狀態:完成                                         
+                </td>                                            
+            </tr>'                        
+--查詢本月簽核中報廢單數據                                
+--從簽核完全的最大ID加一開始循環到#Form表中的所有的數據記錄數                                
+                     
+select @i=min(id) from #Form where issend=1 and status=1                               
+select @j=max(id) from #Form where issend=1 and status=1                          
+if @j>=@i                          
+begin                                
+while @i<=@j                             
+begin                  
+ select @PaperNO=PaperNO,@EmpInfo=EmpInfo,@SendDate=SendDate,@CostUnitInfo=CostUnitInfo,@ExpressVendor=ExpressVendor,@ExpressId=ExpressId,                  
+ @ExpressServiceItem=ExpressServiceItem,@ExpressFileCategory=ExpressFileCategory,@ExpressProductName=ExpressProductName,@ExpressPerson=ExpressPerson,                  
+ @ExpressWeight=ExpressWeight,@ExpressDetailSite=ExpressDetailSite,@PredictCost=PredictCost,@Description=Description                  
+ from #Form where id=@i and issend=1 and status=1                  
+                         
+ set @msg=@msg+'<tr>                                                  
+    <td height="22" style="font-weight: bold;font-size:9pt; background-color: transparent;height: 16.5pt;                            
+     border:2px solid #333399" align="center">                                             
+                    '+@PaperNO+'                                
+                </td>                                          
+                <td height="22" style="font-weight: bold;font-size:9pt; background-color: transparent;height: 16.5pt;                            
+     border:2px solid #333399" align="center">                                            
+                    '+@EmpInfo+'                                           
+                </td>                                                   
+                <td height="22" style="font-weight: bold;font-size:9pt; background-color: transparent;height: 16.5pt;                            
+     border:2px solid #333399"  align="center">                                             
+                    '+@SendDate+'                                
+                </td>                                    
+    <td height="22" style="font-weight: bold;font-size:9pt; background-color: transparent;height: 16.5pt;                            
+     border:2px solid #333399"  align="center">                                             
+                    '+isnull(@CostUnitInfo,'無')+'                                          
+                </td>                                
+    <td height="22" style="font-weight: bold;font-size:9pt; background-color: transparent;height: 16.5pt;                            
+     border:2px solid #333399"  align="center">                                            
+                    '+isnull(@ExpressVendor,'無')+'                                          
+                </td>                                     
+    <td height="22" style="font-weight: bold;font-size:9pt; background-color: transparent;height: 16.5pt;                            
+     border:2px solid #333399"  align="center">                                             
+                 '+isnull(@ExpressId,'無')+'                                          
+                </td>                                     
+    <td height="22" style="font-weight: bold;font-size:9pt; background-color: transparent;height: 16.5pt;                            
+     border:2px solid #333399"  align="center">                                             
+                    '+isnull(@ExpressServiceItem,'無')+'                                          
+                </td>                                     
+    <td height="22" style="font-weight: bold;font-size:9pt; background-color: transparent;height: 16.5pt;                            
+     border:2px solid #333399"  align="center">                                             
+                    '+isnull(@ExpressFileCategory,'無')+'                                          
+                </td>                                     
+    <td height="22" style="font-weight: bold;font-size: 9pt;height: 16.5pt;                            
+     background-color: transparent;border:2px solid #333399" align="center">                                             
+                    '+isnull(@ExpressProductName,'無')+'                                          
+                </td>                   
+ <td height="22" style="font-weight: bold;font-size: 9pt;height: 16.5pt;                            
+     background-color: transparent;border:2px solid #333399" align="center">                                             
+                    '+isnull(@ExpressPerson,'無')+'                                          
+                </td>                    
+ <td height="22" style="font-weight: bold;font-size: 9pt;height: 16.5pt;                            
+     background-color: transparent;border:2px solid #333399" align="center">                                             
+                    '+isnull(@ExpressWeight,'無')+'                                          
+                </td>                    
+ <td height="22" style="font-weight: bold;font-size: 9pt;height: 16.5pt;                            
+     background-color: transparent;border:2px solid #333399" align="center">                                             
+                    '+isnull(@ExpressDetailSite,'無')+'                                          
+                </td>                    
+ <td height="22" style="font-weight: bold;font-size: 9pt;height: 16.5pt;                            
+     background-color: transparent;border:2px solid #333399" align="center">                                             
+                    '+isnull(@PredictCost,'無')+'                                          
+                </td>                      
+    <td height="22"  style="border-right: #333399 2px solid; border-top: #333399 2px solid;font-weight: bold;                                               
+                    font-size: 9pt; border-left: #333399 2px solid; line-height: 20px; border-bottom: #333399 2px solid;                                            
+                    border-collapse: collapse; background-color: #333399                                                          
+                    border-left: windowtext 0.5pt solid; border-bottom: windowtext 0.5pt solid; height: 16.5pt;                                        
+                    background-color: transparent" align="left">                                            
+                    '+isnull(@Description,'無')+'                          
+                </td>                              
+            </tr>'                                
+ set @i=@i+1                                
+end                          
+end                           
+                    
+else                   
+begin                          
+ set @msg=@msg+'<tr>                            
+    <td height="22" colspan="14" style="font-weight: bold;font-size: 9pt;height: 16.5pt;                            
+     background-color: transparent;border:2px solid #333399" align="center">                                                        
+                    無              
+                </td>                                            
+            </tr>'                            
+end                  
+                  
+set @msg=@msg+'</table>'                                
+        
+--獲取本月所有的開單人工號  郵件接受者        
+create table #recipients        
+(        
+ empid varchar(10)        
+)        
+        
+insert into #recipients        
+select distinct substring(EmpInfo,1,charindex('_',EmpInfo)-1)from #Form         
+        
+declare @recipients varchar(max)        
+select @recipients=isnull(@recipients,'')+rtrim(empid)+'@sz.unimicron.com;' from #recipients        
+        
+        
+--獲取本月所有的開單人工號的單位部門主管  郵件接受者（副本）        
+create table #copy_recipients        
+(        
+ empid varchar(10)        
+)    insert into #copy_recipients        
+select distinct Directorid from Uszerp.newerp.dbo.PSN_UNitDirector where status=1 and unitid in(select distinct substring(CostUnitInfo,1,charindex('_',CostUnitInfo)-1) from #Form)        
+union        
+select distinct Directorid from Uszerp.newerp.dbo.PSN_DepDirector where status=1 and unitid in(select distinct substring(CostUnitInfo,1,charindex('_',CostUnitInfo)-1) from #Form)        
+declare @copy_recipients varchar(max)        
+select @copy_recipients=isnull(@copy_recipients,'')+rtrim(empid)+'@sz.unimicron.com;' from #copy_recipients        
+        
+        
+--刪除臨時表                         
+drop table #Form            
+drop table #recipients        
+drop table #copy_recipients          
+              
+EXEC  msdb.dbo.sp_send_dbmail                                                                                                                
+      @profile_name='workflow',                                                           
+      @recipients=@recipients,                                     
+      @copy_recipients=@copy_recipients,                         
+      @blind_copy_recipients ='1403749@sz.unimicron.com',                                                                                                   @subject=@Subject,                                                                                
+                                
+      @body = @msg,                                                                                                                
+      @body_format='HTML' 

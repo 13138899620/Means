@@ -1,0 +1,121 @@
+Memcached介绍
+1.Memcached 是一个高性能的分布式缓存系统，用于Web应用减轻数据库的，它通过在内存中缓存数据和对象来减少读取数据库的次数，从而提高网站的访问速度！ 
+
+2.Memcached 是一个给予存储键值对的HaspMap，底层使用C语言完成，但是客户端可以使用任何语言来编写（Java，C#,PHP)
+
+3。Memcached 中的数据都存储在memcached内置的内存存储空间中，由于数据仅存在内存中，因此当某个服务器停止运行或出现问题后，所有存放在服务器上的键值对都会丢失
+
+
+Memcached特征
+Memcached作为高速运行的分布式缓存服务器，具有以下的特点：
+
+1：协议简单(客户端通信并不是使用复杂的XML格式，而是使用简单的基于文本行的协议)
+
+2：基于libevent的事件处理(libevent是一个程序库，即使服务器的连接数增加，也能发挥o(1)的性能)
+
+3：内置内存存储方式(c中已经描述)
+
+4：Memcached不互相通信的分布式。
+
+5.由于数据仅存在于内存中，因此重启memcached、重启操作系统会导致全部数据消失。 另外，内容容量达到指定值之后，就基于LRU(Least Recently Used)算法自动删除不使用的缓存。memcached本身是为缓存而设计的服务器，因此并没有过多考虑数据的永久性问题。
+NoSQL中比较优秀的一款产品：Redis，比较好地解决了数据持久化的这个问题，重启Redis不会导致数据丢失。
+
+
+Demo
+        static void Main(string[] args)
+        {
+            //分布Memcachedf服务IP 端口
+            string[] servers = { "127.0.0.1:11211"};
+
+            //初始化池
+            string poolName = "MyPool";
+            SockIOPool pool = SockIOPool.GetInstance(poolName);
+            //添加服务器列表
+            pool.SetServers(servers);
+            //设置连接池初始化数目
+            pool.InitConnections = 3;
+            //设置连接池最小连接数目
+            pool.MinConnections = 3;
+            //设置连接池最大连接数目
+            pool.MaxConnections = 5;
+            //设置连接的套接字超时时间
+            pool.SocketConnectTimeout = 1000;
+            //设置套接字超时时间
+            pool.SocketTimeout = 3000;
+            // 设置维护线程运行的睡眠时间：如果设置为0，那么维护线程将不会启动
+            pool.MaintenanceSleep = 30;
+            // 设置SockIO池的故障标志
+            pool.Failover = true;
+            // 是否用nagle算法启动
+            pool.Nagle = false;
+            // 正式初始化容器
+            pool.Initialize();
+
+            //初始化客户端实例
+            MemcachedClient mc = new Memcached.ClientLibrary.MemcachedClient();
+            // 指定客户端访问的SockIO池
+            mc.PoolName = poolName;
+            // 是否启用压缩数据：如果启用了压缩，数据压缩长于门槛的数据将被储存在压缩的形式
+            mc.EnableCompression = false;
+
+            StringBuilder sb = new StringBuilder();
+            //写入缓存
+            sb.AppendLine("写入缓存测试：");
+            sb.AppendLine("<br>_______________________________________<br>");
+            //判断cache1是否存在
+         
+            if (mc.KeyExists("cache1"))
+            {
+                sb.AppendLine("缓存cache已存在");
+            }
+            else
+            {
+                mc.Set("cache1", "写入缓存时间：" + DateTime.Now.ToString());
+                sb.AppendLine("缓存已成功写入到cache");
+            }
+
+        
+            sb.AppendLine("<br>_______________________________________<br>");
+            sb.AppendLine("读取缓存内容如下：<br>");
+           
+            sb.AppendLine(mc.Get("cache1").ToString());
+            Console.WriteLine(sb.ToString());
+
+            //添加缓存cache2
+            Console.WriteLine("----------------------------测试2----------------------------");
+            mc.Add("cache2", "lousie2");
+
+            //删除缓存cache2
+            mc.Delete("cache2");
+
+            if (!mc.KeyExists("cache2"))
+            {
+                Console.WriteLine("cache2 is deleted!");
+            }
+            else
+            {
+               
+                Console.WriteLine(mc.Get("cache2").ToString());
+            }
+            Console.WriteLine("----------------------------测试2完成----------------------------");
+
+            //设置过期时间
+            Console.WriteLine("----------------------------测试3----------------------------");
+            mc.Add("cache3", "expired", DateTime.Now.AddSeconds(5));
+            Console.WriteLine("cache3:{0}", mc.Get("cache3"));
+            Console.WriteLine("Please waiting the sleeping time");
+            System.Threading.Thread.Sleep(4000);
+            if (!mc.KeyExists("cache3"))
+            {
+                Console.WriteLine("cache3 is expired");
+            }
+            Console.WriteLine("----------------------------测试3完成----------------------------");
+
+            pool.Shutdown();
+
+            Console.Read();
+        }
+
+
+
+

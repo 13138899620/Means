@@ -1,0 +1,1 @@
+insert into UserManager UserName,PassWord,RegisterDate values (@UserName,@PassWord,@RegisterDate);select @@IDENTITY  ----返回剛插入數據的ID

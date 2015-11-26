@@ -1,0 +1,30 @@
+1,Action Filter作为一个可以应用到Controller Action(或者是整个controller）上属性(Attribute),改变Action的执行的行为，当应用于整个Controller上时，Controller上所有的Action都应用了同样设置的Action.使用Action Filter可以处理缓存，验证和错误处理您的操作使用声明性编程模型的行为！
+
+2.ASP.NET MVC Framework支持四种不同类型的Filter：
+（1） Authorization filters  实现IAuthorizationFilter接口的属性
+ (2)  Action filters         实现IActionFilter接口的属性
+（3） Result filters         实现IResultFilter接口的属性
+（4） Exception filters      实现IExceptionFilter接口的属性
+
+3.Filter的默认的执行顺序按上面的列表中顺序进行。(Authorization filters->Action filters->Result filters->Exception filters)
+如验证(authorization）Filter永远都是最开始执行的，异常（exception）Filter永远都是最后执行的，当然你也可以根据需要通过Order属性设定过滤器执行的顺序。
+
+4.验证（authorization） filter用于实现在controller action上的验证和授权，如Authorize filter就是一个验证filter的列子
+
+Action filter包含一些逻辑，用于该action执行之前或者执行之后，比如可以使用一个action filter来修改action返回的view data；
+
+Result filter包含一些逻辑，用于该action的view result执行之前和执行之后，比如可以修改一个view result在被呈现到浏览器之前
+
+异常（Exception） Action用于处理异常信息，同样可以使用异常filter记录错误日志
+
+
+
+5.为了让用户更简单的创建一个自定义Action filter，ASP.NET MVC Framework提供了一个基类ActionFilterAttribute，这个类实现了IActionFilter和IResultFilter接口，并且继承了FilterAttribute类。从广义上来说，在ASP.NET MVC Framework中，任何实现filter的类型都是action filter。
+
+6.ActionFilterAttribute类有以下的方法可以重写
+OnActionExceuting --在controller action执行之前调用
+OnActionExceuted  – 在controller action执行之后调用
+OnResultExceuting   – 在controller action result执行之前调用
+OnResultExceuted   – 在controller action result执行之后调用
+
+7.

@@ -1,0 +1,70 @@
+
+
+
+跨域提交功能
+A系统内打开B系统页面，B系统提交成功后自动关闭页面，或者A系统打开B系统页面，宽度自适应
+
+1.A系统添加名称为blank.html页面
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+
+2.A系统打开B系统是，添加url参数（blank.html）的页面地址
+hrc.box.normal({ title: '简历反馈', href: '<%=HR.Recruitment.Common.WebConfig.ResumeOpsUi%>'+'/Comment/Feedback' + '?resumeId=' + resumeId+"&recordId="+recordId+"&url=http://"+window.location.host+"/resume/pages/blank.html", width: 500, height: 350 });
+
+
+3.B系统控制器接收参数，通过ViewBag.Blank = url传递到页面
+  public async Task<ActionResult> Interview(int resumeId, int staffId, string url)
+        {
+            var higgsResume = await HiggsService.GetResumesById(resumeId) ?? new SingleQueryResumeModel();
+            var resumeOperation = await OperationService.GetOperationByIdCondition(resumeId);
+            //如果运营表中namew为空则去higgs中获取
+            if (higgsResume != null && resumeOperation != null && higgsResume.QueryByIdResult.Length > 0)
+            {
+                //当前雇主
+                if (string.IsNullOrEmpty(resumeOperation.Name) && higgsResume.QueryByIdResult[0].FIRSTNAME != null)
+                {
+                    resumeOperation.Name = higgsResume.QueryByIdResult[0].FIRSTNAME as string;
+                }
+            }
+            ViewBag.Blank = url;
+            ViewBag.Operation = resumeOperation;
+            staff = new Staff(staffId);
+            ViewBag.ResumeInterviewer = staff != null ? staff.FullName + ";" : "";
+            return View();
+        }
+
+4.页面放入div <div id="divloadingcontainer"></div>，事件触发时，将代码写入到div中
+    //$("#divloadingheight").html("<iframe src='" + BlankUrl + "#" + calcPageHeight() + "' name='iframeBlank'  frameborder='0' width='0' height='0' style='display:none' scrolling='no'></iframe>");
+
+// 计算页面的实际高度，iframe自适应会用到
+        //function calcPageHeight() {
+        //    var cHeight = Math.max(document.body.clientHeight, document.documentElement.clientHeight);
+        //    var sHeight = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+        //    var height = Math.max(cHeight, sHeight);
+        //    return height;
+        //}
+
+blank.html执行相应代码
+    <script type="text/javascript" src="http://dev.r.hrc.oa.com/resource/script/jquery.js"></script>
+    <script type="text/javascript" src="http://dev.r.hrc.oa.com/resource/script/hrcsite.js"></script>
+    <script type="text/javascript">
+        function pseth() {
+            setTimeout(closeBox, 2000);
+        }
+        function closeBox() {
+            parent.parent.hrc.box.close();
+            var currUrl = parent.parent.window.location.href;
+            var url = currUrl.replace("isforce=1", "isforce=0");
+            parent.parent.window.location.href = url;
+        }
+        window.onload = pseth();
+    </script>
+

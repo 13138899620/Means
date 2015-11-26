@@ -1,0 +1,98 @@
+1.ReturnUrl 
+action="/Account/Login?ReturnUrl=http%3A%2F%2Flocalhost%3A58021%2FAdmin%2FIndex"
+
+//该方法捕获的是传递到/Account/Login方法中的ReutrnUrl参数，若果ReturnUrl为空或者“”，则跳转到
+webconfig中配置的defaulturl页面，否则跳转到ReturnUrl页面！
+FormsAuthentication.GetRedirectUrl(passport.Ticket.LoginName, false);
+
+
+2.登录页面Url:loginUrl="~/Account/LoginPage" 
+  默认首页页面: defaultUrl="~/Home/Index"
+
+
+3. 如果Request.IsAuthenticated为true，则表示是一个已登录用户。
+   如果是一个已登录用户，访问HttpContext.User.Identity.Name可获取登录名（都是实例属性）
+
+
+4.在ASP.NET中，整个身份认证的过程其实可分为二个阶段：认证与授权。
+认证阶段：识别当前请求的用户是不是一个可识别（的已登录）用户。
+授权阶段：是否允许当前请求访问指定的资源。
+
+
+ 5.<forms cookieless="UseCookies" name="LoginCookieName" loginUrl="~/Account/LoginPage"  defaultUrl="~/Home/Index" timeout="2880"  path="/" />
+
+name="LoginCookieName"  登录时写入浏览器的cookie
+
+cookieless="UseCookies" 
+如果你在程序中使用Form验证并使用cookie保存用户的登录状态，请切记：在<authentication mode="Forms">/<forms>中要加上cookieless="UseCookies"。如果不这样设置的话，cookieless会使用默认值UseDeviceProfile。用了UseDeviceProfile，悲剧就发生了，ASP.NET会根据Request.Browser.Cookies来判断当前浏览器是否支持Cookie（如若不信，请用Reflector查看System.Web.Security.FormsAuthentication的代码）。而Request.Browser.Cookies会认为上面的三种情况不支持cookie（可能还有更多误判的情况）。
+
+
+6. Forms身份认证是在web.config中指定的，我们还可以设置Forms身份认证的其它配置参数。
+   Forms身份认证的登录状态是通过Cookie来维持的。
+   Forms身份认证的登录Cookie是加密的。
+
+
+7.Forms身份认证
+登录的操作通常会检查用户提供的用户名和密码，因此登录状态也必须具有足够高的安全性。 在Forms身份认证中，由于登录状态是保存在Cookie中，而Cookie又会保存到客户端，因此，为了保证登录状态不被恶意用户伪造， ASP.NET采用了加密的方式保存登录状态。 为了实现安全性，ASP.NET采用【Forms身份验证凭据】（即FormsAuthenticationTicket对象）来表示一个Forms登录用户， 加密与解密由FormsAuthentication的Encrypt与Decrypt的方法来实现。
+
+登录过程（在登录验证结束后，一般会产生重定向操作，那么后面的每次请求将带上前面产生的加密的Cookie，供服务器来验证每次请求的登录状态）
+
+1.检查用户提交的登录名和密码是否正确
+2.根据登录名创建一个FormsAuthenticationTicket对象
+3.调用FormsAuthentication.Encrypt()加密
+4.根据加密结果创建登录Cookie，并写入Response
+
+
+为了保存与登录名相关的额外的用户信息，我认为实现自定义的身份认证标识（HttpContext.User实例）是个容易的解决方法。
+1. 在登录时，创建自定义的FormsAuthenticationTicket对象，它包含了用户信息。
+2. 加密FormsAuthenticationTicket对象。
+3. 创建登录Cookie，它将包含FormsAuthenticationTicket对象加密后的结果。
+4. 在管线的早期阶段，读取登录Cookie，如果有，则解密。
+5. 从解密后的FormsAuthenticationTicket对象中还原我们保存的用户信息。
+6. 设置HttpContext.User为我们自定义的对象。
+
+
+
+8.FormsAuthentication.RedirectFromLoginPage(UserName.Text, mycheckbox.Checked)用于基于用户的验证 此方法封装了生成身份验证票,写回客户端,浏览器重定向等一系列的动作 RedirectFromLoginPage()方法首先生成生成身份验证票，然后调用FormAuthenticaiton.Encrypt() 方法,该方法将身份验证票加密为字符串，然后生成身份验证Cookie，再将此Cookie加入到Response.Cookies中，等待发送到客户端。最后RedirectFromLoginPage方法调用FormsAuthentication.GetRedirectUrl 方法获取到用户原先请求的页面，重定向到这个页面。 1、在浏览器上创建一个cookie，其中包含一个验证令牌。 2、返回刚才您所请求的页面（ReturnUrl ）
+
+
+9.注销的时候使用httpContext.Current.Request.UrlReferrer获取上次URL的值，如果是<a hrer=....>方式就可以得到HttpContext.Current.Request.UrlReferrer的值！
+
+10.//创建一个新的票据，将客户ip记入ticket的userdata 
+FormsAuthenticationTicket ticket=new FormsAuthenticationTicket( 
+1,userName.Text,DateTime.Now,DateTime.Now.AddMinutes(30), 
+false,Request.UserHostAddress); 
+//将票据加密 
+string authTicket=FormsAuthentication.Encrypt(ticket); 
+//将加密后的票据保存为cookie 
+HttpCookie coo=new HttpCookie(FormsAuthentication.FormsCookieName,authTicket); 
+//使用加入了userdata的新cookie 
+Response.Cookies.Add(coo); 
+
+下面是FormsAuthenticationTicket构造函数的重载之一的方法签名 
+public FormsAuthenticationTicket( 
+int version, 
+string name, 
+DateTime issueDate, 
+DateTime expiration, 
+bool isPersistent, 
+string userData 
+); 
+
+参数 
+version 
+版本号。 
+name 
+与身份验证票关联的用户名。 
+issueDate 
+Cookie 的发出时间。 
+expiration 
+Cookie 的到期日期。 
+isPersistent 
+如果 Cookie 是持久的，为 true；否则为 false。 
+userData 
+将存储在 Cookie 中的用户定义数据
+
+使用userdata也很简单，FormsIdentity的Ticket属性就提供了对当前票据的访问，获得票据后就可以用UserData属性访问保存的信息，当然是经过解密的。 
+((System.Web.Security.FormsIdentity)this.Context.User.Identity).Ticket.UserData 
+

@@ -1,0 +1,66 @@
+19:40:49
+zzy123456 2015/12/8 19:40:49
+ThinkPHP中initialize()和construct()这两个函数都可以理解为构造函数，前面一个是tp框架独有的，后面的是php构造函数，那么这两个有什么不同呢？
+ 
+在网上搜索，很多答案是两者是一样的，ThinkPHP中initialize相当于php的construct，这么说是错误的，如果这样，tp为什么不用construct，而要自己弄一个ThinkPHP版的initialize构造函数呢？
+ 
+自己试一下就知道两者的不同了。
+ 
+a.php
+class a{
+    function __construct(){
+        echo 'a';
+    }
+}
+复制代码
+b.php(注意：这里构造函数没有调用parent::__construct();)
+include 'a.php';
+class b extends a{
+    function __construct(){
+        echo 'b';
+    }
+}
+ 
+$test=new b();
+复制代码
+运行结果：
+b
+复制代码
+可见，虽然b类继承了a类，但是输出结果证明程序只是执行了b类的构造函数，而没有自动执行父类的构造函数。
+ 
+如果b.php的构造函数加上parent::__construct()，就不同了。
+include 'a.php';
+class b extends a{
+    function __construct(){
+        parent::__construct();
+        echo 'b';
+    }
+}
+ 
+$test=new b();
+复制代码
+那么输出结果是：
+ab
+复制代码
+此时才执行了父类的构造函数。
+ 
+我们再来看看thinkphp的initialize()函数。
+ 
+BaseAction.class.php
+class BaseAction extends Action{
+    public function _initialize(){
+             echo 'baseAction';
+    }
+复制代码
+IndexAction.class.php
+class IndexAction extends BaseAction{
+    public function (){
+             echo 'indexAction';
+        }
+复制代码
+运行Index下的index方法，输出结果：
+baseActionindexAcition
+复制代码
+可见，子类的_initialize方法自动调用父类的_initialize方法。而php的构造函数construct，如果要调用父类的方法，必须在子类构造函数显示调用parent::__construct();
+ 
+这就是ThinkPHP中initialize和construct的不同。

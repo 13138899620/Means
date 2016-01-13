@@ -1,0 +1,42 @@
+using log4net;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Net;
+using System.Net.Mail;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Test
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            SmtpClient sc = new SmtpClient();
+            sc.DeliveryMethod = SmtpDeliveryMethod.Network;
+            sc.EnableSsl = false;
+            sc.Host = "smtp.163.com";
+            sc.Port = 25;
+            sc.UseDefaultCredentials = true;
+            sc.Credentials = new NetworkCredential("13138899620@163.com", "Abc123456...");
+
+            MailMessage mm = new MailMessage(); //实例化一个邮件类
+            mm.Priority = MailPriority.High;
+            mm.From = new MailAddress("13138899620@163.com", "yangyi", Encoding.GetEncoding(936));
+            mm.To.Add(new MailAddress("943130995@qq.com", "WangJing", Encoding.GetEncoding(936)));
+
+
+            mm.Subject = "Hello WangJing";
+            mm.SubjectEncoding = Encoding.GetEncoding(936);
+            mm.IsBodyHtml = true;
+
+            mm.BodyEncoding = Encoding.GetEncoding(936);
+            var mailbody = File.ReadAllText("C:\\mail.txt",Encoding.GetEncoding(936));
+            mm.Body = mailbody;
+            sc.Send(mm);
+            Console.Read();
+        }
+    }
+}

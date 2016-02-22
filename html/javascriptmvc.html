@@ -1,0 +1,90 @@
+<html>
+<head>
+<title></title>
+</head>
+<body>
+    <span bind="hour"></span> : <span bind="minute"></span> : <span bind="second"></span>
+    
+    <div id="div1"></div>
+    <div id="div2"></div>
+   
+   
+    <script type="text/javascript">
+
+        function Model(value) {
+            this._value = typeof value === 'undefined' ? '' : value;
+            this._listeners = [];
+        }
+
+        Model.prototype.watch = function (value) {
+            this._listeners.push(value);
+        };
+
+        Model.prototype.set = function (value) {
+            var self = this;
+            this._value = value;
+
+            setTimeout(function () {
+                self._listeners.forEach(function (listener) {
+                    listener.call(self, value);
+                });
+            });
+        };
+
+        Model.prototype.bind = function (node) {
+            this.watch(function (value) {
+                node.innerHTML = value;
+            });
+        };
+
+   
+
+    
+
+
+        function Controller(callback) {
+            var models = {};
+
+            var views = Array.prototype.slice.call(document.querySelectorAll('[bind]'), 0);
+
+            views.forEach(function (view) {
+                var modelName = view.getAttribute('bind');
+
+                models[modelName] = models[modelName] || new Model();
+
+                models[modelName].bind(view);
+            });
+
+            callback.call(this, models);
+        }
+
+        (function () {
+            new Controller(function (models) {
+                function setTime() {
+                    var date = new Date();
+                    models.hour.set(date.getHours());
+                    models.minute.set(date.getMinutes());
+                    models.second.set(date.getSeconds());
+                }
+
+                setTime();
+                setInterval(setTime, 1000);
+            });
+
+        
+
+            var model = new Model();
+
+            var div1 = document.getElementById("div1");
+            var div2 = document.getElementById("div2");
+
+            model.watch(function (value) {
+                div1.innerHTML = value;
+            });
+
+            model.bind(div2);
+            model.set('hello,this is a div!');
+        })();
+    </script>
+</body>
+</html>

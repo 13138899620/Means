@@ -1,34 +1,39 @@
-create table tb( ﹎ varchar(10),揭祘 varchar(10),だ计 int)
+select * from [dbo].[Student]
 
-insert into tb values('眎','粂ゅ',74)
 
-insert into tb values('眎','计厩',83)
 
-insert into tb values('眎','瞶',93)
+create table tb( name varchar(10),[subject] varchar(10),score int)
 
-insert into tb values('','粂ゅ',74)
+insert into tb values('张三','语文',74)
 
-insert into tb values('','计厩',84)
+insert into tb values('张三','数学',83)
 
-insert into tb values('','瞶',94)
+insert into tb values('张三','英语',93)
+
+insert into tb values('李四','数学',74)
+
+insert into tb values('李四','语文',84)
+
+insert into tb values('李四','英语',94)
 
 go
 
 select * from tb
 
 
-select ﹎,
-	   max(case 揭祘 when '粂ゅ' then だ计 else 0 end) as '粂ゅ',
-	   max(case 揭祘 when '计厩' then だ计 else 0 end) as '计厩',
-	   max(case 揭祘 when '瞶' then だ计 else 0 end) as '瞶'
- from tb group by ﹎
-select * from tb
-select * from #Form1
+select name,
+max(case [subject] when '语文' then score else 0 end) as '语文',
+max(case [subject] when '数学'then score else 0 end) as '数学',
+max(case [subject] when '英语' then score else 0 end) as '英语' into #form from tb
+group by name
 
-select ﹎,揭祘='粂ゅ',だ计=粂ゅ from #Form1
+
+select * from #form
+
+
+
+select name,[subject]='语文',score=语文 from #form
 union
-select ﹎,揭祘='计厩',だ计=计厩 from #Form1
+select name,[subject]='数学',score=数学 from #form
 union
-select ﹎,揭祘='瞶',だ计=瞶 from #Form1
-
-
+select name,[subject]='英语',score=英语 from #form

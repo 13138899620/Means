@@ -1,0 +1,96 @@
+function(){
+    console.log(1); 
+}
+// 报错
+
+1.不能直接使用
+
+
+var a=function(){
+    console.log(1); 
+}
+a();
+
+2.匿名函数可以依附于一个变量，并且这个变量名就是这个匿名函数的名字
+
+
+window.onload = function(){
+    console.log("匿名函数");
+}
+// 匿名函数
+
+
+3.当匿名函数用于绑定事件中的时候，当这个事件执行的时候这个匿名函数也会被执行
+
+
+(function(){
+    console.log("追梦子");
+})()
+// 追梦子
+
+4.如果将匿名函数放入到表达式中并且后面加上小括号会自动执行这个函数
+
+
+var a = function(){
+    console.log("自执行函数");
+}();
+// 自执行函数
+
+5.匿名函数后面加括号会执行这个函数
+
+
+function(){
+    console.log(1);
+}();
+// 报错
+
+6.匿名函数必须依附于一个变量
+
+
+var a = {
+    fn:function(){
+        console.log(1);
+    }
+}
+a.fn(); //1
+
+7.匿名函数不只是可以依附于一个变量，也可以依附于一个对象的属性
+
+var a = {
+    fn:function(){
+        console.log("追梦子");
+    }()
+} //追梦子
+
+8.同样的匿名函数当做一个对象的属性时也可以自调用。
+
+
+
+var a = function(b){
+    console.log(b)
+}
+a(52); //52
+
+(function(a){
+    console.log(a);
+})(10) //10
+
+9,匿名函数也可以传递参数
+
+
+
+
+var a = function(b){
+    console.log(b);
+}(10); //10
+console.log(a); //undefined
+
+var a = function(b){
+    return b;
+}(10);
+console.log(a); //10
+
+
+10.如果将一个自执行的匿名函数并且没有返回值，赋值给一个变量那么这个变量的值就是undefined。
+因为这个函数在赋值之前已经执行完了，而这个函数没有返回值，所以就是undefined，如果有返回值，
+那么这个变量的值就是那个匿名函数的返回值。

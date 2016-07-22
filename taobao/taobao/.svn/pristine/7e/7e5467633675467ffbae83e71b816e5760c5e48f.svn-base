@@ -1,0 +1,47 @@
+<?php
+namespace Admin\Controller;
+use Think\Controller;
+class SystemController extends Controller {
+   /*
+     * 空操作
+     */
+    public function _empty($name){
+    	
+    	$this->error('404');
+    }
+    
+    /*
+     * 管理首页
+     */
+    public function modipassword(){
+
+		if(!is_administrator()){
+    		$this->error('很抱歉，您没有登录。',U('Admin/Index/login'));
+    	}
+        $admin = session('admin_auth');
+        $this->assign('admin',$admin);
+ 		$this->display();
+    }
+    public function domodipwd(){
+        if(!is_administrator()){
+            $this->error('很抱歉，您没有登录。',U('Admin/Index/login'));
+        }
+        $admin = session('admin_auth');
+        $data['id'] = I('request.id');
+        $oldpassword = I('request.oldpassword');
+        $data['password'] = md5(I('request.password'));
+
+        if(md5($oldpassword) == $admin['password']){
+            $res = M('Admin')->save($data);
+            if($res !== false){
+                $this->success('修改成功',U('Admin/Index/index'));
+            }else{
+                $this->error('操作数据库出错');
+            }
+        }else{
+            $this->error('原来密码填写错误');
+        }
+
+    }
+
+}

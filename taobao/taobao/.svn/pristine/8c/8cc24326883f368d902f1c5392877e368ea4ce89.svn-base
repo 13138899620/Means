@@ -1,0 +1,17 @@
+<?php
+return array(
+	//'配置项'=>'配置值'
+	/* 模板相关配置 */
+	'TMPL_PARSE_STRING' => array(
+			'../Public'=> __ROOT__."/".MODULE_PATH.'/View/Public',
+			'__UPLOAD__'     => __ROOT__ . '/Uploads',
+			'__ATEBOOT__'    => __ROOT__ . '/Public/AdminLTE/bootstrap',
+			'__ATEDIST__'    => __ROOT__ . '/Public/AdminLTE/dist',
+			'__ATEPLUGIN__'     => __ROOT__ . '/Public/AdminLTE/plugins',
+			'__BOOT__' => __ROOT__ . '/Public/bootstrap3',
+	),
+
+	'admin_title' => '后台管理中心config',
+	'admin_txtlogo' => '管理中心config',
+		
+);

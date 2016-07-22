@@ -131,7 +131,3 @@ function fun(n,o) {
 var a = fun(0);  a.fun(1);  a.fun(2);  a.fun(3);//undefined,0,0,0
 var b = fun(0).fun(1).fun(2).fun(3);//undefined,0,1,2
 var c = fun(0).fun(1);  c.fun(2);  c.fun(3);//undefined,0,1,1
-
-
-
-闭包就是一个函数引用另一个函数的变量，因为变量被另一个函数引用着所以不会回收，因为可以用来封装一个私有变量，这是优点也是缺点，不必要的闭包只会徒增内存消耗！

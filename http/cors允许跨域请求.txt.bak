@@ -1,0 +1,5 @@
+cors，比较灵活，支持所有格式的请求
+
+php 文件头部添加
+header("Access-Control-Allow-Origin:*")  允许所有站点的请求
+header("Access-Control-Allow-Origin:www.baidu.com")  允许指定站点的请求

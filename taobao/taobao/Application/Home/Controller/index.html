@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <title>js stduy</title>
+</head>
+<body>
+<button onclick="TimeOut()">click me</button>
+<button onclick="Interval()">click you</button>
+<button onclick="ClearTimeOut()">Clear me</button>
+<button onclick="ClearInterval()">Clear you</button>
+</body>
+
+<script type="text/javascript">
+    var timeoutId;
+    var intervalId;
+    function TimeOut() {
+        timeoutId = setTimeout('TimeOutTest()', 1000);
+    }
+
+    function TimeOutTest() {
+        alert("1234");
+    }
+
+
+    function Interval() {
+        intervalId = setInterval('TimeOutTest()', 1000);
+    }
+
+    function ClearTimeOut() {
+        window.clearTimeout(timeoutId);
+    }
+
+    function ClearInterval() {
+        window.clearInterval(intervalId);
+    }
+
+
+    function closure() {
+        var n = 999;
+
+        function f1() {
+            n = n + 1;
+            alert(n);
+        }
+
+        return f1;
+    }
+
+    var result = closure();
+
+
+    var name = "The Window";
+    var object = {
+        name: "My Object",
+        getNameFunc:function() {
+            var that=this;
+            return function () {
+                return this.name;
+            }
+        }
+    }
+
+    alert(object.getNameFunc()());
+
+</script>
+</html>

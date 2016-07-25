@@ -470,7 +470,7 @@ ul.callbacks_tabs.callbacks1_tabs {
 }
 .stay_right {
 	float: left;
-	width:40%;
+    width: 62.5%;
 }
 .search input[type="text"] {
 	padding:7px 10px;
@@ -478,7 +478,7 @@ ul.callbacks_tabs.callbacks1_tabs {
 	color: #fff;
 	background:#c9c9c9;
 	border: none;
-	width:72%;
+	width:98%;
 	line-height: 1.5em;
 	font: 500 13px/13px 'Lato', sans-serif;
 }
@@ -493,7 +493,7 @@ ul.callbacks_tabs.callbacks1_tabs {
 /*--index_content--*/
 .main{
 	background:#eee;
-	padding: 1em 0 5em;
+	padding: 1em 0 2em;
 }
 h3.menu_head {
 	background:#df1f26;
@@ -760,6 +760,19 @@ ul.user li.user_desc p a{
 .grid_2{
 	padding:1em 1em 0;
 }
+
+.grid_3{
+    font: 700 14px/14px 'Lato', sans-serif;
+    text-align: center;
+}
+
+.img_dianpu{
+    display: block;
+    max-width: 100%;
+    height: 112px;
+    width: 112px;
+}
+
 .grid_2 p{
 	font: 600 15px/15px 'Lato', sans-serif;
 	color: #797979;
@@ -779,24 +792,33 @@ ul.grid_2-bottom{
 }
 ul.grid_2-bottom li.grid_2-left{
 	float: left;
-	border-right: 1px solid #ECECEC;
-	padding-right: 5%;
+	/*border-right: 1px solid #ECECEC;*/
+	/*padding-right: 5%;*/
+    width: 50%;
 }
 ul.grid_2-bottom li.grid_2-left p{
-	border-bottom: 0;
-	font: 800 20px/20px 'Lato', sans-serif;
-	color: #000;
-	margin: 3px 0 0 0;
-	padding-bottom: 0;
+	/*border-bottom: 0;*/
+	/*font: 800 20px/20px 'Lato', sans-serif;*/
+	/*color: #000;*/
+	/*margin: 3px 0 0 0;*/
+	/*padding-bottom: 0;*/
+    font: 600 15px/15px 'Lato', sans-serif;
+    color: #797979;
+    line-height: 1.2em;
+    border-bottom: 1px solid #ECECEC;
+    padding-bottom: 10px;
+    margin-bottom: 5px;
+    border-right: 1px solid #ECECEC
 }
 ul.grid_2-bottom li.grid_2-right{
 	float:right;
+    width: 50%;
 }
 ul.grid_2-bottom li.grid_2-left p small {
-	font:700 15px/15px 'Lato', sans-serif;
-	vertical-align: text-top;
-    border-bottom: 1px solid #ECECEC;
-    padding-bottom: 10px;
+	/*font:700 15px/15px 'Lato', sans-serif;*/
+	/*vertical-align: text-top;*/
+    /*border-bottom: 1px solid #ECECEC;*/
+    /*padding-bottom: 10px;*/
 }
 .btn.btn-primary {
 	font:700 13px/13px 'Lato', sans-serif;
@@ -932,6 +954,7 @@ span.m_2{
 	font: 400 25px/25px Lato, sans-serif;
 	text-transform:uppercase;
 	margin-bottom:1em;
+    font-weight:bold;
 }
 .f_grid1 p{
 	color: #616161;
@@ -1723,6 +1746,7 @@ p.cart {
 }
 .f_grid1 h3, .f_grid3 h3 {
 	font: 400 20px/25px Lato, sans-serif;
+    font-weight:bold;
 }
 .span_3_of_2 {
 	width: 51.3333%;
@@ -1990,4 +2014,6 @@ ul.about_box li.box_desc {
 .page-not-found h1 {
 	font: 300 90px/90px Lato, sans-serif;
 }
+
+
 }

@@ -1,19 +1,28 @@
 <?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE HTML>
 <html>
 <head>
-    <title>Home</title>
+    <title>妈妈装_妈妈装品牌_中年妈妈装_妈妈穿的衣服|中老年女装|中老年妇女装</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="keywords" content="Fashionpress Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
-    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-    <link href="http://www.yangyi.com:81/Public/css/bootstrap.css" rel='stylesheet' type='text/css' />
-    <link href="http://www.yangyi.com:81/Public/css/style.css" rel='stylesheet' type='text/css' />
-    <link href='http://fonts.useso.com/css?family=Lato:100,200,300,400,500,600,700,800,900' rel='stylesheet' type='text/css'>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="keywords" content="妈妈装,妈妈装品牌,中老年妈妈装,中年妈妈装,中老年女装,
+中老年妇女装,妈妈穿的衣服,妈妈穿的鞋子,妈妈用的包包,妈妈服装,精选妈妈装"/>
+    <meta name="description" content="妈妈装网站是一家淘宝导购网站，所有商品都是由买手们推荐的淘宝/天猫爆款热销产品，方便大家为妈妈们挑选更好更满意的商品!" />
+    <script type="application/x-javascript"> addEventListener("load", function () {
+        setTimeout(hideURLbar, 0);
+    }, false);
+    function hideURLbar() {
+        window.scrollTo(0, 1);
+    } </script>
+    <link href="http://www.yangyi.com:81/Public/css/bootstrap.css" rel='stylesheet' type='text/css'/>
+    <link href="http://www.yangyi.com:81/Public/css/style.css" rel='stylesheet' type='text/css'/>
+    <link href='http://fonts.useso.com/css?family=Lato:100,200,300,400,500,600,700,800,900' rel='stylesheet'
+          type='text/css'>
     <script type="text/javascript" src="http://www.yangyi.com:81/Public/js/jquery-1.11.1.min.js"></script>
     <script src="http://www.yangyi.com:81/Public/js/responsiveslides.min.js"></script>
+    <script type="text/javascript" src="http://www.yangyi.com:81/Public/js/hover_pack.js"></script>
     <script>
         $(function () {
+            //广告栏加载
             $("#slider").responsiveSlides({
                 auto: true,
                 nav: true,
@@ -23,7 +32,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             });
         });
     </script>
-    <script type="text/javascript" src="http://www.yangyi.com:81/Public/js/hover_pack.js"></script>
 </head>
 <body>
 <div class="header">
@@ -33,54 +41,66 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <a href="index.html"><img src="http://www.yangyi.com:81/Public/images/logo.png" alt=""/></a>
             </div>
             <ul class="shopping_grid">
-                <a href="http://s.click.taobao.com/BaS3WWx"><li>爱淘宝</li></a>
-                <a href="http://s.click.taobao.com/X96ghVx"><li>聚划算</li></a>
-                <a href="http://s.click.taobao.com/yTvfhVx"><li><span class="m_1">淘宝特卖</span>&nbsp;<img src="http://www.yangyi.com:81/Public/images/bag.png" alt=""/></li></a>
-                <div class="clearfix"> </div>
+                <a target="_blank" href="http://s.click.taobao.com/BaS3WWx">
+                    <li>爱淘宝</li>
+                </a>
+                <a target="_blank" href="http://s.click.taobao.com/X96ghVx">
+                    <li>聚划算</li>
+                </a>
+                <a target="_blank" href="http://s.click.taobao.com/yTvfhVx">
+                    <li><span class="m_1">淘宝特卖</span>&nbsp;<img src="http://www.yangyi.com:81/Public/images/bag.png" alt=""/></li>
+                </a>
+
+                <div class="clearfix"></div>
             </ul>
-            <div class="clearfix"> </div>
+            <div class="clearfix"></div>
         </div>
     </div>
-    <div class="h_menu4"><!-- start h_menu4 -->
+    <div class="h_menu4">
         <div class="container">
             <a class="toggleMenu" href="#">Menu</a>
             <ul class="nav">
-                <li class="active"><a href="index.html" data-hover="Home">首页</a></li>
-                <li><a href="about.html" data-hover="About Us">淘宝特卖</a></li>
-                <li><a href="careers.html" data-hover="Careers">9块9包邮</a></li>
-                <li><a href="contact.html" data-hover="Contact Us">穿衣搭配</a></li>
-                <li><a href="404.html" data-hover="Company Profile">精选单品</a></li>
-                <li><a href="register.html" data-hover="Company Registration">爱淘宝</a></li>
-                <li><a href="wishlist.html" data-hover="Wish List">聚划算</a></li>
+                <li class="active"><a href="index.html" data-hover="首页">首页</a></li>
+                <li><a target="_blank" href="//temai.taobao.com/search.htm?q=妈妈装&pid=mm_114400181_13356254_53060478" data-hover="特卖汇">特卖汇</a></li>
+                <li><a target="_blank" href="http://s.click.taobao.com/FCKSfVx" data-hover="9块9疯抢">9块9疯抢</a></li>
+                <li><a target="_blank" href="http://s.click.taobao.com/878SfVx" data-hover="20元封顶">20元封顶</a></li>
+                <li><a target="_blank" href="http://s.click.taobao.com/Y48SfVx" data-hover="50元好货">50元好货</a></li>
+                <li><a target="_blank" href="http://s.click.taobao.com/bKASfVx" data-hover="一折清仓">一折清仓</a></li>
+                <li><a target="_blank" href="http://s.click.taobao.com/Tl7SfVx" data-hover="全场半价">全场半价</a></li>
             </ul>
-            <script type="text/javascript" src="http://www.yangyi.com:81/Public/jsnav.js"></script>
-        </div><!-- end h_menu4 -->
+        </div>
     </div>
 </div>
-    <!--<div class="slider">-->
-    <!--<div class="callbacks_container">-->
-        <!--<ul class="rslides" id="slider">-->
-            <!--<li><img src="http://www.yangyi.com:81/Public/images/banner1.jpg" class="img-responsive" alt=""/>-->
-                <!--<div class="banner_desc">-->
-                    <!--<h1>We Provide Worlds top fashion for less fashionpress.</h1>-->
-                    <!--<h2>FashionPress the name of the of hi class fashion Web FreePsd.</h2>-->
-                <!--</div>-->
-            <!--</li>-->
-            <!--<li><img src="http://www.yangyi.com:81/Public/images/banner2.jpg" class="img-responsive" alt=""/>-->
-                <!--<div class="banner_desc">-->
-                    <!--<h1>Duis autem vel eum iriure dolor in hendrerit.</h1>-->
-                    <!--<h2>Claritas est etiam processus dynamicus, qui sequitur .</h2>-->
-                <!--</div>-->
-            <!--</li>-->
-            <!--<li><img src="http://www.yangyi.com:81/Public/images/banner3.jpg" class="img-responsive" alt=""/>-->
-                <!--<div class="banner_desc">-->
-                    <!--<h1>Ut wisi enim ad minim veniam, quis nostrud.</h1>-->
-                    <!--<h2>Mirum est notare quam littera gothica, quam nunc putamus.</h2>-->
-                <!--</div>-->
-            <!--</li>-->
-        <!--</ul>-->
-    <!--</div>-->
-<!--</div>-->
+<div class="slider">
+    <div class="callbacks_container">
+        <ul class="rslides" id="slider">
+            <li><img src="http://www.yangyi.com:81/Public/images/banner1.jpg" class="img-responsive" alt=""/>
+                <div class="banner_desc">
+                    <h1>We Provide Worlds top fashion for less fashionpress.</h1>
+                    <h2>FashionPress the name of the of hi class fashion Web FreePsd.</h2>
+                </div>
+            </li>
+            <li><img src="http://www.yangyi.com:81/Public/images/banner2.jpg" class="img-responsive" alt=""/>
+                <div class="banner_desc">
+                    <h1>Duis autem vel eum iriure dolor in hendrerit.</h1>
+                    <h2>Claritas est etiam processus dynamicus, qui sequitur .</h2>
+                </div>
+            </li>
+            <li><img src="http://www.yangyi.com:81/Public/images/banner3.jpg" class="img-responsive" alt=""/>
+                <div class="banner_desc">
+                    <h1>Ut wisi enim ad minim veniam, quis nostrud.</h1>
+                    <h2>Mirum est notare quam littera gothica, quam nunc putamus.</h2>
+                </div>
+            </li>
+            <li><img src="http://www.yangyi.com:81/Public/images/banner3.jpg" class="img-responsive" alt=""/>
+                <div class="banner_desc">
+                    <h1>Ut wisi enim ad minim veniam, quis nostrud11111111.</h1>
+                    <h2>Mirum est notare quam littera gothica, quam nunc putamus11111111.</h2>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
 
 <div class="main">
     <div class="content_top">
@@ -155,26 +175,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </li>
                         </ul>
                     </div>
-                    <!--initiate accordion-->
-                    <script type="text/javascript">
-                        $(function() {
-                            var menu_ul = $('.menu > li > ul'),
-                                    menu_a  = $('.menu > li > a');
-                            menu_ul.hide();
-                            menu_a.click(function(e) {
-                                e.preventDefault();
-                                if(!$(this).hasClass('active')) {
-                                    menu_a.removeClass('active');
-                                    menu_ul.filter(':visible').slideUp('normal');
-                                    $(this).addClass('active').next().stop(true,true).slideDown('normal');
-                                } else {
-                                    $(this).removeClass('active');
-                                    $(this).next().stop(true,true).slideUp('normal');
-                                }
-                            });
-
-                        });
-                    </script>
                 </div>
                 <!--<div class="delivery">-->
                     <!--<img src="http://www.yangyi.com:81/Public/images/delivery.jpg" class="img-responsive" alt=""/>-->
@@ -223,46 +223,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <div class="clearfix"> </div>
                     </div>
                 </div>
-                <!--<div class="top_grid1">-->
-                    <!--<div class="col-md-4 box_2">-->
-                        <!--<div class="grid_1"><a href="single.html">-->
-                            <!--<div class="b-link-stroke b-animate-go  thickbox">-->
-                                <!--<img src="http://www.yangyi.com:81/Public/images/p1.jpg" class="img-responsive" alt=""/></div>-->
-                            <!--<div class="grid_2">-->
-                                <!--<p>There are many variations of passages</p>-->
-                                <!--<ul class="grid_2-bottom">-->
-                                    <!--<li class="grid_2-left"><p>$99<small>.33</small></p></li>-->
-                                    <!--<li class="grid_2-right"><div class="btn btn-primary btn-normal btn-inline " target="_self" title="Get It">Get It</div></li>-->
-                                    <!--<div class="clearfix"> </div>-->
-                                <!--</ul>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                        <!--</a></div>-->
-                    <!--<div class="col-md-8 box_1"><a href="single.html">-->
-                        <!--<div class="grid_1">-->
-                            <!--<div class="b-link-stroke b-animate-go  thickbox">-->
-                                <!--<img src="http://www.yangyi.com:81/Public/images/p2.jpg" class="img-responsive" alt=""/> </div>-->
-                            <!--<div class="grid_2">-->
-                                <!--<p>There are many variations of passages</p>-->
-                                <!--<ul class="grid_2-bottom">-->
-                                    <!--<li class="grid_2-left"><p>$99<small>.33</small></p></li>-->
-                                    <!--<li class="grid_2-right"><div class="btn btn-primary btn-normal btn-inline " target="_self" title="Get It">Get It</div></li>-->
-                                    <!--<div class="clearfix"> </div>-->
-                                <!--</ul>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                    <!--</a></div>-->
-                    <!--<div class="clearfix"> </div>-->
-                <!--</div>-->
-
-
-
                 <!--<h4 class="head"><span class="m_2"></span>商品列表</h4>-->
-
-
                 <?php if(is_array($products)): foreach($products as $key=>$item): ?><div class="top_grid2">
                     <?php if(is_array($item)): foreach($item as $key=>$product): ?><div class="col-md-4 top_grid1-box1">
-                            <a href="<?php echo ($product["shortlink"]); ?>">
+                            <a target="_blank" href="<?php echo ($product["shortlink"]); ?>">
                             <div class="grid_1">
                                 <div class="b-link-stroke b-animate-go  thickbox">
                                     <img src="<?php echo ($product["photo"]); ?>" class="img-responsive" alt=""/> </div>
@@ -271,295 +235,118 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <ul class="grid_2-bottom">
                                         <li class="grid_2-left"><p><small>淘宝价：¥<?php echo ($product["price"]); ?></small></p></li>
                                         <li class="grid_2-right"><p><small>月销量：<?php echo ($product["sales"]); ?></small></p></li>
-                                        <!--<li class="grid_2-right"><div class="btn btn-primary btn-normal btn-inline " target="_self" title="Get It">Get It</div></li>-->
                                         <div class="clearfix"> </div>
                                     </ul>
                                 </div>
                             </div>
-                        </a></div>
-                        <!--<?php echo ($product["id"]); ?>-->
-                        <!--<?php echo ($product["name"]); ?>-->
-                        <!--<?php echo ($product["photo"]); ?>-->
-                        <!--<?php echo ($product["url"]); ?>-->
-                        <!--<?php echo ($product["shopname"]); ?>-->
-                        <!--<?php echo ($product["price"]); ?>-->
-                        <!--<?php echo ($product["sales"]); ?>-->
-                        <!--<?php echo ($product["percentage"]); ?>-->
-                        <!--<?php echo ($product["commission"]); ?>-->
-                        <!--<?php echo ($product["wangwang"]); ?>-->
-                        <!--<?php echo ($product["shortlink"]); ?>-->
-                        <!--<?php echo ($product["longlink"]); ?>--><?php endforeach; endif; ?>
+                        </a></div><?php endforeach; endif; ?>
                         <div class="clearfix"> </div>
                     </div><?php endforeach; endif; ?>
-
-
-
-
-
-
-
-                <!--<div class="top_grid2">-->
-                    <!--<div class="col-md-4 top_grid1-box1"><a href="single.html">-->
-                        <!--<div class="grid_1">-->
-                            <!--<div class="b-link-stroke b-animate-go  thickbox">-->
-                                <!--<img src="http://www.yangyi.com:81/Public/images/p3.jpg" class="img-responsive" alt=""/> </div>-->
-                            <!--<div class="grid_2">-->
-                                <!--<p>There are many variations of passages</p>-->
-                                <!--<ul class="grid_2-bottom">-->
-                                    <!--<li class="grid_2-left"><p>$99<small>.33</small></p></li>-->
-                                    <!--<li class="grid_2-right"><div class="btn btn-primary btn-normal btn-inline " target="_self" title="Get It">Get It</div></li>-->
-                                    <!--<div class="clearfix"> </div>-->
-                                <!--</ul>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                    <!--</a></div>-->
-                    <!--<div class="col-md-4 top_grid1-box1"><a href="single.html">-->
-                        <!--<div class="grid_1">-->
-                            <!--<div class="b-link-stroke b-animate-go  thickbox">-->
-                                <!--<img src="http://www.yangyi.com:81/Public/images/p4.jpg" class="img-responsive" alt=""/> </div>-->
-                            <!--<div class="grid_2">-->
-                                <!--<p>There are many variations of passages</p>-->
-                                <!--<ul class="grid_2-bottom">-->
-                                    <!--<li class="grid_2-left"><p>$99<small>.33</small></p></li>-->
-                                    <!--<li class="grid_2-right"><div class="btn btn-primary btn-normal btn-inline " target="_self" title="Get It">Get It</div></li>-->
-                                    <!--<div class="clearfix"> </div>-->
-                                <!--</ul>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                    <!--</a></div>-->
-                    <!--<div class="col-md-4 top_grid1-box1"><a href="single.html">-->
-                        <!--<div class="grid_1">-->
-                            <!--<div class="b-link-stroke b-animate-go  thickbox">-->
-                                <!--<img src="http://www.yangyi.com:81/Public/images/p5.jpg" class="img-responsive" alt=""/> </div>-->
-                            <!--<div class="grid_2">-->
-                                <!--<p>There are many variations of passages</p>-->
-                                <!--<ul class="grid_2-bottom">-->
-                                    <!--<li class="grid_2-left"><p>$99<small>.33</small></p></li>-->
-                                    <!--<li class="grid_2-right"><div class="btn btn-primary btn-normal btn-inline " target="_self" title="Get It">Get It</div></li>-->
-                                    <!--<div class="clearfix"> </div>-->
-                                <!--</ul>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                    <!--</a> </div>-->
-                    <!--<div class="clearfix"> </div>-->
-                <!--</div>-->
-
-                <!--<div class="top_grid2">-->
-                    <!--<div class="col-md-4 top_grid1-box1"><a href="single.html">-->
-                        <!--<div class="grid_1">-->
-                            <!--<div class="b-link-stroke b-animate-go  thickbox">-->
-                                <!--<img src="http://www.yangyi.com:81/Public/images/p3.jpg" class="img-responsive" alt=""/> </div>-->
-                            <!--<div class="grid_2">-->
-                                <!--<p>There are many variations of passages</p>-->
-                                <!--<ul class="grid_2-bottom">-->
-                                    <!--<li class="grid_2-left"><p>$99<small>.33</small></p></li>-->
-                                    <!--<li class="grid_2-right"><div class="btn btn-primary btn-normal btn-inline " target="_self" title="Get It">Get It</div></li>-->
-                                    <!--<div class="clearfix"> </div>-->
-                                <!--</ul>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                    <!--</a></div>-->
-                    <!--<div class="col-md-4 top_grid1-box1"><a href="single.html">-->
-                        <!--<div class="grid_1">-->
-                            <!--<div class="b-link-stroke b-animate-go  thickbox">-->
-                                <!--<img src="http://www.yangyi.com:81/Public/images/p4.jpg" class="img-responsive" alt=""/> </div>-->
-                            <!--<div class="grid_2">-->
-                                <!--<p>There are many variations of passages</p>-->
-                                <!--<ul class="grid_2-bottom">-->
-                                    <!--<li class="grid_2-left"><p>$99<small>.33</small></p></li>-->
-                                    <!--<li class="grid_2-right"><div class="btn btn-primary btn-normal btn-inline " target="_self" title="Get It">Get It</div></li>-->
-                                    <!--<div class="clearfix"> </div>-->
-                                <!--</ul>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                    <!--</a></div>-->
-                    <!--<div class="col-md-4 top_grid1-box1"><a href="single.html">-->
-                        <!--<div class="grid_1">-->
-                            <!--<div class="b-link-stroke b-animate-go  thickbox">-->
-                                <!--<img src="http://www.yangyi.com:81/Public/images/p5.jpg" class="img-responsive" alt=""/> </div>-->
-                            <!--<div class="grid_2">-->
-                                <!--<p>There are many variations of passages</p>-->
-                                <!--<ul class="grid_2-bottom">-->
-                                    <!--<li class="grid_2-left"><p>$99<small>.33</small></p></li>-->
-                                    <!--<li class="grid_2-right"><div class="btn btn-primary btn-normal btn-inline " target="_self" title="Get It">Get It</div></li>-->
-                                    <!--<div class="clearfix"> </div>-->
-                                <!--</ul>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                    <!--</a> </div>-->
-                    <!--<div class="clearfix"> </div>-->
-                <!--</div>-->
-
-                <!--<div class="top_grid2">-->
-                    <!--<div class="col-md-4 top_grid1-box1"><a href="single.html">-->
-                        <!--<div class="grid_1">-->
-                            <!--<div class="b-link-stroke b-animate-go  thickbox">-->
-                                <!--<img src="http://www.yangyi.com:81/Public/images/p6.jpg" class="img-responsive" alt=""/> </div>-->
-                            <!--<div class="grid_2">-->
-                                <!--<p>There are many variations of passages</p>-->
-                                <!--<ul class="grid_2-bottom">-->
-                                    <!--<li class="grid_2-left"><p>$99<small>.33</small></p></li>-->
-                                    <!--<li class="grid_2-right"><div class="btn btn-primary btn-normal btn-inline " target="_self" title="Get It">Get It</div></li>-->
-                                    <!--<div class="clearfix"> </div>-->
-                                <!--</ul>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                    <!--</a></div>-->
-                    <!--<div class="col-md-4 top_grid1-box1"><a href="single.html">-->
-                        <!--<div class="grid_1">-->
-                            <!--<div class="b-link-stroke b-animate-go  thickbox">-->
-                                <!--<img src="http://www.yangyi.com:81/Public/images/p7.jpg" class="img-responsive" alt=""/> </div>-->
-                            <!--<div class="grid_2">-->
-                                <!--<p>There are many variations of passages</p>-->
-                                <!--<ul class="grid_2-bottom">-->
-                                    <!--<li class="grid_2-left"><p>$99<small>.33</small></p></li>-->
-                                    <!--<li class="grid_2-right"><div class="btn btn-primary btn-normal btn-inline " target="_self" title="Get It">Get It</div></li>-->
-                                    <!--<div class="clearfix"> </div>-->
-                                <!--</ul>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                    <!--</a></div>-->
-                    <!--<div class="col-md-4 top_grid1-box1"><a href="single.html">-->
-                        <!--<div class="grid_1">-->
-                            <!--<div class="b-link-stroke b-animate-go  thickbox">-->
-                                <!--<img src="http://www.yangyi.com:81/Public/images/p8.jpg" class="img-responsive" alt=""/> </div>-->
-                            <!--<div class="grid_2">-->
-                                <!--<p>There are many variations of passages</p>-->
-                                <!--<ul class="grid_2-bottom">-->
-                                    <!--<li class="grid_2-left"><p>$99<small>.33</small></p></li>-->
-                                    <!--<li class="grid_2-right"><div class="btn btn-primary btn-normal btn-inline " target="_self" title="Get It">Get It</div></li>-->
-                                    <!--<div class="clearfix"> </div>-->
-                                <!--</ul>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                    <!--</a></div>-->
-                    <!--<div class="clearfix"> </div>-->
-                <!--</div>-->
-
-                <!--<div class="top_grid2">-->
-                    <!--<div class="col-md-4 top_grid1-box1"><a href="single.html">-->
-                        <!--<div class="grid_1">-->
-                            <!--<div class="b-link-stroke b-animate-go  thickbox">-->
-                                <!--<img src="http://www.yangyi.com:81/Public/images/p9.jpg" class="img-responsive" alt=""/> </div>-->
-                            <!--<div class="grid_2">-->
-                                <!--<p>There are many variations of passages</p>-->
-                                <!--<ul class="grid_2-bottom">-->
-                                    <!--<li class="grid_2-left"><p>$99<small>.33</small></p></li>-->
-                                    <!--<li class="grid_2-right"><div class="btn btn-primary btn-normal btn-inline " target="_self" title="Get It">Get It</div></li>-->
-                                    <!--<div class="clearfix"> </div>-->
-                                <!--</ul>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                    <!--</a> </div>-->
-                    <!--<div class="col-md-4 top_grid1-box1"><a href="single.html">-->
-                        <!--<div class="grid_1">-->
-                            <!--<div class="b-link-stroke b-animate-go  thickbox">-->
-                                <!--<img src="http://www.yangyi.com:81/Public/images/p10.jpg" class="img-responsive" alt=""/> </div>-->
-                            <!--<div class="grid_2">-->
-                                <!--<p>There are many variations of passages</p>-->
-                                <!--<ul class="grid_2-bottom">-->
-                                    <!--<li class="grid_2-left"><p>$99<small>.33</small></p></li>-->
-                                    <!--<li class="grid_2-right"><div class="btn btn-primary btn-normal btn-inline " target="_self" title="Get It">Get It</div></li>-->
-                                    <!--<div class="clearfix"> </div>-->
-                                <!--</ul>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                    <!--</a></div>-->
-                    <!--<div class="col-md-4 top_grid1-box1"><a href="single.html">-->
-                        <!--<div class="grid_1">-->
-                            <!--<div class="b-link-stroke b-animate-go  thickbox">-->
-                                <!--<img src="http://www.yangyi.com:81/Public/images/p11.jpg" class="img-responsive" alt=""/> </div>-->
-                            <!--<div class="grid_2">-->
-                                <!--<p>There are many variations of passages</p>-->
-                                <!--<ul class="grid_2-bottom">-->
-                                    <!--<li class="grid_2-left"><p>$99<small>.33</small></p></li>-->
-                                    <!--<li class="grid_2-right"><div class="btn btn-primary btn-normal btn-inline " target="_self" title="Get It">Get It</div></li>-->
-                                    <!--<div class="clearfix"> </div>-->
-                                <!--</ul>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                    <!--</a></div>-->
-                    <!--<div class="clearfix"> </div>-->
-                <!--</div>-->
-
-                <!--<div class="top_grid2">-->
-                    <!--<div class="col-md-4 top_grid1-box1"><a href="single.html">-->
-                        <!--<div class="grid_1">-->
-                            <!--<div class="b-link-stroke b-animate-go  thickbox">-->
-                                <!--<img src="http://www.yangyi.com:81/Public/images/p12.jpg" class="img-responsive" alt=""/> </div>-->
-                            <!--<div class="grid_2">-->
-                                <!--<p>There are many variations of passages</p>-->
-                                <!--<ul class="grid_2-bottom">-->
-                                    <!--<li class="grid_2-left"><p>$99<small>.33</small></p></li>-->
-                                    <!--<li class="grid_2-right"><div class="btn btn-primary btn-normal btn-inline " target="_self" title="Get It">Get It</div></li>-->
-                                    <!--<div class="clearfix"> </div>-->
-                                <!--</ul>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                    <!--</a></div>-->
-                    <!--<div class="col-md-4 top_grid1-box1"><a href="single.html">-->
-                        <!--<div class="grid_1">-->
-                            <!--<div class="b-link-stroke b-animate-go  thickbox">-->
-                                <!--<img src="http://www.yangyi.com:81/Public/images/p13.jpg" class="img-responsive" alt=""/> </div>-->
-                            <!--<div class="grid_2">-->
-                                <!--<p>There are many variations of passages</p>-->
-                                <!--<ul class="grid_2-bottom">-->
-                                    <!--<li class="grid_2-left"><p>$99<small>.33</small></p></li>-->
-                                    <!--<li class="grid_2-right"><div class="btn btn-primary btn-normal btn-inline " target="_self" title="Get It">Get It</div></li>-->
-                                    <!--<div class="clearfix"> </div>-->
-                                <!--</ul>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                    <!--</a></div>-->
-                    <!--<div class="col-md-4 top_grid1-box1"><a href="single.html">-->
-                        <!--<div class="grid_1">-->
-                            <!--<div class="b-link-stroke b-animate-go  thickbox">-->
-                                <!--<img src="http://www.yangyi.com:81/Public/images/p14.jpg" class="img-responsive" alt=""/> </div>-->
-                            <!--<div class="grid_2">-->
-                                <!--<p>There are many variations of passages</p>-->
-                                <!--<ul class="grid_2-bottom">-->
-                                    <!--<li class="grid_2-left"><p>$99<small>.33</small></p></li>-->
-                                    <!--<li class="grid_2-right"><div class="btn btn-primary btn-normal btn-inline " target="_self" title="Get It">Get It</div></li>-->
-                                    <!--<div class="clearfix"> </div>-->
-                                <!--</ul>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                    <!--</a></div>-->
-                    <!--<div class="clearfix"> </div>-->
-                <!--</div>-->
             </div>
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    //菜单操作
+    $(function() {
+        var menu_ul = $('.menu > li > ul'),
+                menu_a  = $('.menu > li > a');
+        menu_ul.hide();
+        menu_a.click(function(e) {
+            e.preventDefault();
+            if(!$(this).hasClass('active')) {
+                menu_a.removeClass('active');
+                menu_ul.filter(':visible').slideUp('normal');
+                $(this).addClass('active').next().stop(true,true).slideDown('normal');
+            } else {
+                $(this).removeClass('active');
+                $(this).next().stop(true,true).slideUp('normal');
+            }
+        });
+
+    });
+</script>
 <div class="footer_bg">
 </div>
 <div class="footer">
     <div class="container">
         <div class="col-md-3 f_grid1">
-            <h3>关于我们</h3>
+            <h3 class="font_bold">关于我们</h3>
             <a href="#"><img src="http://www.yangyi.com:81/Public/images/logo.png" alt=""/></a>
-            <p>妈妈装网站是一家淘宝导购网站，所有商品都是由买手们推荐的淘宝/天猫爆款热销产品，方便大家为爸爸妈妈们挑选更好的满意的商品!</p>
+            <p>妈妈装网站是一家淘宝导购网站，所有商品都是由买手们推荐的淘宝/天猫爆款热销产品，方便大家为妈妈们挑选更好更满意的商品!</p>
         </div>
-        <div class="col-md-3 f_grid1 f_grid2">
-            <h3>精选店铺</h3>
-            <ul class="social">
-                <li><a href="http://s.click.taobao.com/zNfGhVx"> <i class="fb"> </i><p class="m_3">芬典服饰旗舰店</p><div class="clearfix"> </div></a></li>
-                <li><a href="http://s.click.taobao.com/E2gGhVx"><i class="tw"> </i><p class="m_3">丽之美衣</p><div class="clearfix"> </div></a></li>
-                <li><a href="http://s.click.taobao.com/f2XGhVx"><i class="google"> </i><p class="m_3">朵莹旗舰店</p><div class="clearfix"> </div></a></li>
-                <li><a href="http://s.click.taobao.com/grUGhVx"><i class="instagram"> </i><p class="m_3">水夕旗舰店</p><div class="clearfix"> </div></a></li>
-            </ul>
-        </div>
-        <div class="col-md-6 f_grid3">
-            <h3>联系方式</h3>
-            <ul class="list">
-                <li><p>手机 : 13138899620</p></li>
-                <li><p>qq : 943130995</p></li>
-                <li><p>Email : <a href="mailto:info(at)fashionpress.com">mr-yangyi@outlook.com</a></p></li>
-            </ul>
-            <ul class="list1">
-                <li><p>Aliquam augue a bibendum ipsum diam, semper porttitor libero elit egestas gravida, ut quam, nunc taciti</p></li>
-            </ul>
-            <div class="clearfix"> </div>
+        <div class="col-md-9 f_grid3">
+            <h3 class="font_bold" style="padding-left:15px;">精选店铺</h3>
+            <div class="col-md-2 top_grid1-box1">
+                <a target="_blank" href="http://s.click.taobao.com/zNfGhVx">
+                    <div class="grid_1">
+                        <div class="b-link-stroke b-animate-go  thickbox">
+                            <img src="http://www.yangyi.com:81/Public/images/fengdian.jpg"
+                                 class="img_dianpu" alt="芬典服饰旗舰店"></div>
+                        <div class="grid_3">
+                            <p>芬典服饰旗舰店</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-2 top_grid1-box1">
+                <a target="_blank" href="http://s.click.taobao.com/E2gGhVx">
+                    <div class="grid_1">
+                        <div class="b-link-stroke b-animate-go  thickbox">
+                            <img src="http://www.yangyi.com:81/Public/images/lizhimeiyi.jpg"
+                                 class="img_dianpu" alt="丽之美衣"></div>
+                        <div class="grid_3">
+                            <p>丽之美衣</p>
+                        </div>
+                    </div>
+                </a></div>
+            <div class="col-md-2 top_grid1-box1">
+                <a target="_blank" href="http://s.click.taobao.com/f2XGhVx">
+                    <div class="grid_1">
+                        <div class="b-link-stroke b-animate-go  thickbox">
+                            <img src="http://www.yangyi.com:81/Public/images/duoying.jpg"
+                                 class="img_dianpu" alt="朵莹旗舰店"></div>
+                        <div class="grid_3">
+                            <p>朵莹旗舰店</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-2 top_grid1-box1">
+                <a href="http://s.click.taobao.com/grUGhVx">
+                    <div class="grid_1">
+                        <div class="b-link-stroke b-animate-go  thickbox">
+                            <img src="http://www.yangyi.com:81/Public/images/shuixi.png"
+                                 class="img_dianpu" alt="水夕旗舰店"></div>
+                        <div class="grid_3">
+                            <p>水夕旗舰店</p>
+                        </div>
+                    </div>
+                </a></div>
+            <div class="col-md-2 top_grid1-box1">
+                <a target="_blank" href="http://s.click.taobao.com/EtoefVx">
+                    <div class="grid_1">
+                        <div class="b-link-stroke b-animate-go  thickbox">
+                            <img src="http://www.yangyi.com:81/Public/images/mamadeyichu.jpg"
+                                 class="img_dianpu" alt="我和妈妈的衣橱"></div>
+                        <div class="grid_3">
+                            <p>我和妈妈的衣橱</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-2 top_grid1-box1">
+                <a target="_blank" href="http://s.click.taobao.com/sjiafVx">
+                    <div class="grid_1">
+                        <div class="b-link-stroke b-animate-go  thickbox">
+                            <img src="http://www.yangyi.com:81/Public/images/jianggang.jpg"
+                                 class="img_dianpu" alt="简港旗舰店"></div>
+                            <div class="grid_3">
+                                <p>简港旗舰店</p>
+                            </div>
+                    </div>
+                </a>
+            </div>
         </div>
     </div>
 </div>
@@ -567,20 +354,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <div class="container">
         <div class="cssmenu">
             <ul>
-                <li><a href="http://s.click.taobao.com/9pDghVx">淘宝/天猫</a></li>
-                <li class="active"><a href="http://s.click.taobao.com/X96ghVx">聚划算</a></li> .
-                <li class="active"><a href="http://s.click.taobao.com/NIighVx">阿里旅行</a></li> .
-                <li><a href="http://s.click.taobao.com/1fvtVWx">淘宝特卖</a></li> .
-                <li><a href="http://s.click.taobao.com/BaS3WWx">爱淘宝</a></li> .
-                <li><a href="http://s.click.taobao.com/t?e=m%3D2%26s%3Dt29T39DAnxMcQipKwQzePCperVdZeJviEViQ0P1Vf2kguMN8XjClAuLWUZBUjAimOhdZki1E67u1fVFitrT47Iy2CxZ%2FfR4X7%2FKVVelyWWhSgkhMxg%2FlBhmIkXBqRClNTcEU%2BDykfuSM%2BhtH71aX6uIOTs4KMj3yjpOyWSRdiSZDEm2YKA6YIrbIzrZDfgWtwGXLU4WXsy9VHjYc6ze3iXQfmeYHmozgLNmFwzcjFAU%3D">阿里云</a></li> .
+                <li><a target="_blank" href="http://s.click.taobao.com/9pDghVx">淘宝/天猫</a></li>
+                <li class="active"><a target="_blank" href="http://s.click.taobao.com/X96ghVx">聚划算</a></li>
+                <li class="active"><a target="_blank" href="http://s.click.taobao.com/NIighVx">阿里旅行</a></li>
+                <li><a target="_blank" href="http://s.click.taobao.com/1fvtVWx">淘宝特卖</a></li>
+                <li><a target="_blank" href="http://s.click.taobao.com/BaS3WWx">爱淘宝</a></li>
+                <li><a target="_blank" href="http://s.click.taobao.com/t?e=m%3D2%26s%3Dt29T39DAnxMcQipKwQzePCperVdZeJviEViQ0P1Vf2kguMN8XjClAuLWUZBUjAimOhdZki1E67u1fVFitrT47Iy2CxZ%2FfR4X7%2FKVVelyWWhSgkhMxg%2FlBhmIkXBqRClNTcEU%2BDykfuSM%2BhtH71aX6uIOTs4KMj3yjpOyWSRdiSZDEm2YKA6YIrbIzrZDfgWtwGXLU4WXsy9VHjYc6ze3iXQfmeYHmozgLNmFwzcjFAU%3D">阿里云</a>
+                </li>
             </ul>
         </div>
         <div class="copy">
             <p>Copyright &copy; 2016.妈妈装网站</p>
         </div>
-        <div class="clearfix"> </div>
+        <div class="clearfix"></div>
     </div>
 </div>
-<div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script></div>
+<script type="text/javascript" src="http://www.yangyi.com:81/Public/js/nav.js"></script>
 </body>
 </html>

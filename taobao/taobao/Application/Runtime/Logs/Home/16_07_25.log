@@ -1,0 +1,405 @@
+[ 2016-07-25T00:06:57+08:00 ] 127.0.0.1 /Home/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000212s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003932s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002238s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002885s ]
+SQL: SHOW COLUMNS FROM `product` [ RunTime:0.0734s ]
+SQL: SELECT * FROM `product` LIMIT 1,15   [ RunTime:0.0081s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.003362s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.003899s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.375714s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.376290s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.021994s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.022605s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.005950s ]
+INFO: [ app_end ] --END-- [ RunTime:0.006480s ]
+
+[ 2016-07-25T00:08:14+08:00 ] 127.0.0.1 /Home/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000111s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000786s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001117s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001514s ]
+SQL: SHOW COLUMNS FROM `product` [ RunTime:0.0118s ]
+SQL: SELECT * FROM `product` LIMIT 1,15   [ RunTime:0.0005s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000490s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000949s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.071413s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.071844s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000598s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000880s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001110s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001672s ]
+
+[ 2016-07-25T00:08:50+08:00 ] 127.0.0.1 /Home/Index/about.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000069s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000676s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000550s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000883s ]
+ERR: 非法操作:about
+
+[ 2016-07-25T00:13:33+08:00 ] 127.0.0.1 /Home/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000128s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003388s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.004545s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005150s ]
+SQL: SHOW COLUMNS FROM `product` [ RunTime:0.0327s ]
+SQL: SELECT * FROM `product` LIMIT 1,15   [ RunTime:0.0083s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.002987s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.003574s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.333169s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.333581s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.004426s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.004983s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.004624s ]
+INFO: [ app_end ] --END-- [ RunTime:0.005121s ]
+
+[ 2016-07-25T00:14:13+08:00 ] 127.0.0.1 /Home/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000074s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000673s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000751s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001130s ]
+SQL: SHOW COLUMNS FROM `product` [ RunTime:0.0126s ]
+SQL: SELECT * FROM `product` LIMIT 1,15   [ RunTime:0.0008s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000459s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000758s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.071663s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.072154s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000850s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001335s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001382s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001873s ]
+
+[ 2016-07-25T00:14:33+08:00 ] 127.0.0.1 /Home/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000067s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000689s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000854s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001250s ]
+SQL: SHOW COLUMNS FROM `product` [ RunTime:0.0185s ]
+SQL: SELECT * FROM `product` LIMIT 1,15   [ RunTime:0.0007s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000821s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001131s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.096896s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.097334s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000764s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001515s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003811s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004325s ]
+
+[ 2016-07-25T00:16:30+08:00 ] 127.0.0.1 /Home/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000130s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001724s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001369s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001663s ]
+SQL: SHOW COLUMNS FROM `product` [ RunTime:0.0136s ]
+SQL: SELECT * FROM `product` LIMIT 1,15   [ RunTime:0.0006s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000513s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000825s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.226115s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.226610s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001969s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002416s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.006571s ]
+INFO: [ app_end ] --END-- [ RunTime:0.007589s ]
+
+[ 2016-07-25T00:17:52+08:00 ] 127.0.0.1 /Home/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000079s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000750s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000745s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001043s ]
+SQL: SHOW COLUMNS FROM `product` [ RunTime:0.0128s ]
+SQL: SELECT * FROM `product` LIMIT 1,15   [ RunTime:0.0005s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000650s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001103s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.080132s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.080447s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001187s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001576s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002040s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002769s ]
+
+[ 2016-07-25T00:18:06+08:00 ] 127.0.0.1 /Home/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000111s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000971s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000626s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000919s ]
+SQL: SHOW COLUMNS FROM `product` [ RunTime:0.0132s ]
+SQL: SELECT * FROM `product` LIMIT 1,15   [ RunTime:0.0005s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000488s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000749s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.076522s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.076841s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000725s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001087s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002864s ]
+INFO: [ app_end ] --END-- [ RunTime:0.005676s ]
+
+[ 2016-07-25T00:20:23+08:00 ] 127.0.0.1 /Home/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000071s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000756s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000920s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001198s ]
+SQL: SHOW COLUMNS FROM `product` [ RunTime:0.0170s ]
+SQL: SELECT * FROM `product` LIMIT 1,15   [ RunTime:0.0005s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000454s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000719s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.103083s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.103508s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.003278s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.003817s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002735s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003254s ]
+
+[ 2016-07-25T00:20:42+08:00 ] 127.0.0.1 /Home/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000070s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000894s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000677s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000944s ]
+SQL: SHOW COLUMNS FROM `product` [ RunTime:0.0121s ]
+SQL: SELECT * FROM `product` LIMIT 1,15   [ RunTime:0.0008s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000506s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000762s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.071122s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.071502s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000597s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000861s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002113s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002680s ]
+
+[ 2016-07-25T00:22:09+08:00 ] 127.0.0.1 /Home/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000076s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000779s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000775s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001108s ]
+SQL: SHOW COLUMNS FROM `product` [ RunTime:0.0156s ]
+SQL: SELECT * FROM `product` LIMIT 1,15   [ RunTime:0.0006s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000503s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000764s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.078124s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.078541s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000772s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001209s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001476s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002055s ]
+
+[ 2016-07-25T00:22:42+08:00 ] 127.0.0.1 /Home/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000077s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000689s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000656s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000935s ]
+SQL: SHOW COLUMNS FROM `product` [ RunTime:0.0103s ]
+SQL: SELECT * FROM `product` LIMIT 1,15   [ RunTime:0.0005s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000535s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000800s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.090517s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.090930s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001044s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001539s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.005546s ]
+INFO: [ app_end ] --END-- [ RunTime:0.006665s ]
+
+[ 2016-07-25T00:22:49+08:00 ] 127.0.0.1 /Home/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000068s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000657s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000867s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001256s ]
+SQL: SHOW COLUMNS FROM `product` [ RunTime:0.0121s ]
+SQL: SELECT * FROM `product` LIMIT 1,15   [ RunTime:0.0006s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000477s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000756s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.068853s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.069445s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000744s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001161s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002248s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003247s ]
+
+[ 2016-07-25T00:24:16+08:00 ] 127.0.0.1 /Home/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000063s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000626s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000527s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000780s ]
+SQL: SHOW COLUMNS FROM `product` [ RunTime:0.0136s ]
+SQL: SELECT * FROM `product` LIMIT 1,15   [ RunTime:0.0005s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000602s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000922s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.070935s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.071373s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000709s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001222s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001425s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002014s ]
+
+[ 2016-07-25T00:25:49+08:00 ] 127.0.0.1 /Home/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000112s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001202s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001277s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001751s ]
+SQL: SHOW COLUMNS FROM `product` [ RunTime:0.0168s ]
+SQL: SELECT * FROM `product` LIMIT 1,15   [ RunTime:0.0009s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001196s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001996s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.213584s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.214104s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001314s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001932s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002018s ]
+INFO: [ app_end ] --END-- [ RunTime:0.005131s ]
+
+[ 2016-07-25T00:26:30+08:00 ] 127.0.0.1 /Home/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000078s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000713s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000652s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000910s ]
+SQL: SHOW COLUMNS FROM `product` [ RunTime:0.0109s ]
+SQL: SELECT * FROM `product` LIMIT 1,15   [ RunTime:0.0006s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000601s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000954s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.076666s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.077083s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000853s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001340s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001206s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001794s ]
+
+[ 2016-07-25T00:26:37+08:00 ] 127.0.0.1 /Home/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000070s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000636s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000620s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000869s ]
+SQL: SHOW COLUMNS FROM `product` [ RunTime:0.0106s ]
+SQL: SELECT * FROM `product` LIMIT 1,15   [ RunTime:0.0006s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000521s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000818s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.070501s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.070964s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000544s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000910s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001312s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001899s ]
+
+[ 2016-07-25T00:26:53+08:00 ] 127.0.0.1 /Home/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000063s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000660s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000491s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000801s ]
+SQL: SHOW COLUMNS FROM `product` [ RunTime:0.0134s ]
+SQL: SELECT * FROM `product` LIMIT 1,15   [ RunTime:0.0005s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000497s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000767s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.071270s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.071557s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000558s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000830s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001380s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001895s ]
+

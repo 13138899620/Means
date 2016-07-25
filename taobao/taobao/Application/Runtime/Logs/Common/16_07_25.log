@@ -310,3 +310,33 @@ INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000138s ]
 INFO: [ app_init ] --END-- [ RunTime:0.001115s ]
 ERR: 无法加载模块:Public
 
+[ 2016-07-25T10:32:01+08:00 ] 127.0.0.1 /Public/jsnav.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000069s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000648s ]
+ERR: 无法加载模块:Public
+
+[ 2016-07-25T10:32:43+08:00 ] 127.0.0.1 /Public/jsnav.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000047s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000984s ]
+ERR: 无法加载模块:Public
+
+[ 2016-07-25T10:33:17+08:00 ] 127.0.0.1 /Public/jsnav.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000048s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000760s ]
+ERR: 无法加载模块:Public
+
+[ 2016-07-25T10:33:53+08:00 ] 127.0.0.1 /Public/jsnav.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000050s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000750s ]
+ERR: 无法加载模块:Public
+
+[ 2016-07-25T10:34:10+08:00 ] 127.0.0.1 /Public/jsnav.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000030s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000570s ]
+ERR: 无法加载模块:Public
+

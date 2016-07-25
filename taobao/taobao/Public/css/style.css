@@ -25,7 +25,7 @@ body a{
 }
 .logo{
 	float:left;
-	margin-top:22px;
+	margin-top:8px;
 }
 ul.shopping_grid{
 	padding:0;
@@ -924,8 +924,8 @@ span.m_2{
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
-	min-height:350px;
-	padding:5em 0 0;
+    min-height: 300px;
+    padding: 2em 0 0;
 }
 .f_grid1 h3, .f_grid3 h3{
 	color:#000;

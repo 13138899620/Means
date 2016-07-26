@@ -62,7 +62,6 @@
         });
     </script>
 </head>
-<body>
 
 <div class="header">
     <div class="header_top">
@@ -141,68 +140,33 @@
                     <div class="menu_box">
                         <h3 class="menu_head">商品分类</h3>
                         <ul class="menu">
-                            <li class="item1"><a href="#"><img class="arrow-img" src="http://www.yangyi.com:81/Public/images/f_menu.png" alt=""/> 妈妈装</a>
+                            <li class="item5"><a href="#"><img class="arrow-img" src="http://www.yangyi.com:81/Public/images/f_menu.png" alt=""/>精品推荐</a>
+                                <!--<ul class="cute">-->
+                                    <!--<li class="subitem1"><a href="#">Cute Kittens </a></li>-->
+                                    <!--<li class="subitem2"><a href="#">Strange Stuff </a></li>-->
+                                    <!--<li class="subitem3"><a href="#">Automatic Fails </a></li>-->
+                                <!--</ul>-->
+                            </li>
+                            <li class="item6"><a href="#"><img class="arrow-img" src="http://www.yangyi.com:81/Public/images/f_menu.png" alt=""/>当季热卖</a>
+                            </li>
+                            <li class="item1"><a href="#"><img class="arrow-img" src="http://www.yangyi.com:81/Public/images/f_menu.png" alt=""/> 妈妈的衣服</a>
+                            </li>
+                            <li class="item2"><a href="#"><img class="arrow-img" src="http://www.yangyi.com:81/Public/images/f_menu.png" alt=""/>妈妈的鞋子</a>
+                            </li>
+                            <li class="item3"><a href="#"><img class="arrow-img" src="http://www.yangyi.com:81/Public/images/f_menu.png" alt=""/>妈妈的包包</a>
+                            </li>
+                            <li class="item4"><a href="#"><img class="arrow-img" src="http://www.yangyi.com:81/Public/images/f_menu.png" alt=""/>妈妈的礼物</a>
+                            </li>
+                            <li class="item7"><a href="#"><img class="arrow-img" src="http://www.yangyi.com:81/Public/images/f_menu.png" alt=""/>爸爸的衣服</a>
+                            </li>
+                            <li class="item8"><a href="#"><img class="arrow-img" src="http://www.yangyi.com:81/Public/images/f_menu.png" alt=""/>爸爸的礼物</a>
                                 <ul class="cute">
                                     <li class="subitem1"><a href="#">Cute Kittens </a></li>
                                     <li class="subitem2"><a href="#">Strange Stuff </a></li>
                                     <li class="subitem3"><a href="#">Automatic Fails </a></li>
                                 </ul>
                             </li>
-                            <li class="item2"><a href="#"><img class="arrow-img" src="http://www.yangyi.com:81/Public/images/f_menu.png" alt=""/>爸爸装</a>
-                                <ul class="cute">
-                                    <li class="subitem1"><a href="#">Cute Kittens </a></li>
-                                    <li class="subitem2"><a href="#">Strange Stuff </a></li>
-                                    <li class="subitem3"><a href="#">Automatic Fails </a></li>
-                                </ul>
-                            </li>
-                            <li class="item3"><a href="#"><img class="arrow-img" src="http://www.yangyi.com:81/Public/images/f_menu.png" alt=""/>买手推荐</a>
-                                <ul class="cute">
-                                    <li class="subitem1"><a href="#">Cute Kittens </a></li>
-                                    <li class="subitem2"><a href="#">Strange Stuff </a></li>
-                                    <li class="subitem3"><a href="#">Automatic Fails</a></li>
-                                </ul>
-                            </li>
-                            <li class="item4"><a href="#"><img class="arrow-img" src="http://www.yangyi.com:81/Public/images/f_menu.png" alt=""/>当季热卖</a>
-                                <ul class="cute">
-                                    <li class="subitem1"><a href="#">Cute Kittens </a></li>
-                                    <li class="subitem2"><a href="#">Strange Stuff </a></li>
-                                    <li class="subitem3"><a href="#">Automatic Fails </a></li>
-                                </ul>
-                            </li>
-                            <li class="item5"><a href="#"><img class="arrow-img" src="http://www.yangyi.com:81/Public/images/f_menu.png" alt=""/>断码福利</a>
-                                <ul class="cute">
-                                    <li class="subitem1"><a href="#">Cute Kittens </a></li>
-                                    <li class="subitem2"><a href="#">Strange Stuff </a></li>
-                                    <li class="subitem3"><a href="#">Automatic Fails </a></li>
-                                </ul>
-                            </li>
-                            <li class="item6"><a href="#"><img class="arrow-img" src="http://www.yangyi.com:81/Public/images/f_menu.png" alt=""/>夏装</a>
-                                <ul class="cute">
-                                    <li class="subitem1"><a href="#">Cute Kittens </a></li>
-                                    <li class="subitem2"><a href="#">Strange Stuff </a></li>
-                                    <li class="subitem3"><a href="#">Automatic Fails </a></li>
-                                </ul>
-                            </li>
-                            <li class="item7"><a href="#"><img class="arrow-img" src="http://www.yangyi.com:81/Public/images/f_menu.png" alt=""/>秋装</a>
-                                <ul class="cute">
-                                    <li class="subitem1"><a href="#">Cute Kittens </a></li>
-                                    <li class="subitem2"><a href="#">Strange Stuff </a></li>
-                                    <li class="subitem3"><a href="#">Automatic Fails </a></li>
-                                </ul>
-                            </li>
-                            <li class="item8"><a href="#"><img class="arrow-img" src="http://www.yangyi.com:81/Public/images/f_menu.png" alt=""/>冬装</a>
-                                <ul class="cute">
-                                    <li class="subitem1"><a href="#">Cute Kittens </a></li>
-                                    <li class="subitem2"><a href="#">Strange Stuff </a></li>
-                                    <li class="subitem3"><a href="#">Automatic Fails </a></li>
-                                </ul>
-                            </li>
-                            <li class="item9"><a href="#"><img class="arrow-img" src="http://www.yangyi.com:81/Public/images/f_menu.png" alt=""/>反季清仓</a>
-                                <ul class="cute">
-                                    <li class="subitem1"><a href="#">Cute Kittens </a></li>
-                                    <li class="subitem2"><a href="#">Strange Stuff </a></li>
-                                    <li class="subitem3"><a href="#">Automatic Fails </a></li>
-                                </ul>
+                            <li class="item9"><a href="#"><img class="arrow-img" src="http://www.yangyi.com:81/Public/images/f_menu.png" alt=""/>营养健康</a>
                             </li>
                         </ul>
                     </div>
@@ -242,7 +206,7 @@
             </div>
             <div class="col-md-9 content_right">
                 <div class="column_center" style="margin-left:15px;">
-                    <div class="container">
+                    <div class="">
                         <div class="search">
                             <div class="stay">快速搜索</div>
                             <div class="stay_right">
@@ -305,7 +269,6 @@
                     </ul>
                 </nav>
             </div>
-        </div>
     </div>
 </div>
 <script type="text/javascript">

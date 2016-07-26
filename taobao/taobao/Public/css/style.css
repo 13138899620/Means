@@ -506,6 +506,7 @@ h3.menu_head {
 .sidebar_box{
 	padding-right:0;
 	border-right: 1px solid #B8B8B8;
+    margin-bottom: 30px;
 }
 .menu {
 	width: auto;
@@ -2056,9 +2057,3 @@ ul.about_box li.box_desc {
         margin-bottom: 2em;
     }
 }
-
-/*@media (max-width: 512px){*/
-    /*.pagination{*/
-        /*font-size: 12px;*/
-    /*}*/
-/*}*/

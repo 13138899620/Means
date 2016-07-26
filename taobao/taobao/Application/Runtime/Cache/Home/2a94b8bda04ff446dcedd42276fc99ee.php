@@ -6,7 +6,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="keywords" content="妈妈装,妈妈装品牌,中老年妈妈装,中年妈妈装,中老年女装,
 中老年妇女装,妈妈穿的衣服,妈妈穿的鞋子,妈妈用的包包,妈妈服装,精选妈妈装"/>
-    <meta name="description" content="妈妈装网站是一家淘宝导购网站，所有商品都是由买手们推荐的淘宝/天猫爆款热销产品，方便大家为妈妈们挑选更好更满意的商品!" />
+    <meta name="description" content="妈妈装网站是一家淘宝导购网站，所有商品都是由买手们推荐的淘宝/天猫爆款热销产品，方便大家为妈妈们挑选更好更满意的商品!"/>
     <script type="application/x-javascript"> addEventListener("load", function () {
         setTimeout(hideURLbar, 0);
     }, false);
@@ -30,10 +30,40 @@
                 namespace: "callbacks",
                 pager: true,
             });
+
+            var dianpu=setInterval(function () {
+                var w = parseInt($('.dianpu').parent().css('width'));
+                var h = parseInt($('.dianpu').height());
+                if ($('.dianpu,.dianpu1').is(':animated')) {
+                    $('.dianpu,.dianpu1').stop(true, true);
+                }
+                ml = parseInt($('.dianpu').css('left'));
+                sl = parseInt($('.dianpu1').css('left'));
+                if (ml <= 0 && ml > w * -1) {
+                    $('.dianpu1').css({left: w * -1 + 'px',top:-1*(h)+'px'});
+                    $('.dianpu').animate({left: ml + w + 'px', width: w + 'px'}, 'slow');
+                    if (ml == 0) {
+                        $('.dianpu1').animate({left: (w - w) * -1 + 'px'}, 'slow');
+                    }
+                }
+                else {
+                    $('.dianpu').css({left: w * -1 + 'px'});
+                    $('.dianpu1').animate({left: sl + w + 'px', width: w + 'px'}, 'slow');
+                    if (sl == 0) {
+                        $('.dianpu').animate({left: '0px'}, 'slow');
+                    }
+                }
+            }, 2000);
+
+            $("#a").click(function(){
+                clearInterval(dianpu);
+            })
+
         });
     </script>
 </head>
 <body>
+
 <div class="header">
     <div class="header_top">
         <div class="container">
@@ -58,10 +88,11 @@
     </div>
     <div class="h_menu4">
         <div class="container">
-            <a class="toggleMenu" href="#">Menu</a>
+            <a class="toggleMenu" href="#">快速入口</a>
             <ul class="nav">
                 <li class="active"><a href="index.html" data-hover="首页">首页</a></li>
-                <li><a target="_blank" href="//temai.taobao.com/search.htm?q=妈妈装&pid=mm_114400181_13356254_53060478" data-hover="特卖汇">特卖汇</a></li>
+                <li><a target="_blank" href="//temai.taobao.com/search.htm?q=妈妈装&pid=mm_114400181_13356254_53060478"
+                       data-hover="特卖汇">特卖汇</a></li>
                 <li><a target="_blank" href="http://s.click.taobao.com/FCKSfVx" data-hover="9块9疯抢">9块9疯抢</a></li>
                 <li><a target="_blank" href="http://s.click.taobao.com/878SfVx" data-hover="20元封顶">20元封顶</a></li>
                 <li><a target="_blank" href="http://s.click.taobao.com/Y48SfVx" data-hover="50元好货">50元好货</a></li>
@@ -242,6 +273,37 @@
                         </a></div><?php endforeach; endif; ?>
                         <div class="clearfix"> </div>
                     </div><?php endforeach; endif; ?>
+
+                <!--//分页操作-->
+                <nav style="text-align: center">
+                    <ul class="pagination  pagination-sm">
+                        <li>
+                            <a href="#">
+                                <span aria-hidden="true">《首页</span>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a href="#" aria-label="Previous">
+                                <span aria-hidden="true">上一页</span>
+                            </a>
+                        </li>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li>
+                            <a href="#" aria-label="Next">
+                                <span aria-hidden="true">下一页</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span aria-hidden="true">尾页》</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
             </div>
         </div>
     </div>
@@ -275,77 +337,152 @@
             <a href="#"><img src="http://www.yangyi.com:81/Public/images/logo.png" alt=""/></a>
             <p>妈妈装网站是一家淘宝导购网站，所有商品都是由买手们推荐的淘宝/天猫爆款热销产品，方便大家为妈妈们挑选更好更满意的商品!</p>
         </div>
-        <div class="col-md-9 f_grid3">
-            <h3 class="font_bold" style="padding-left:15px;">精选店铺</h3>
-            <div class="col-md-2 top_grid1-box1">
-                <a target="_blank" href="http://s.click.taobao.com/zNfGhVx">
-                    <div class="grid_1">
-                        <div class="b-link-stroke b-animate-go  thickbox">
-                            <img src="http://www.yangyi.com:81/Public/images/fengdian.jpg"
-                                 class="img_dianpu" alt="芬典服饰旗舰店"></div>
-                        <div class="grid_3">
-                            <p>芬典服饰旗舰店</p>
+        <div class="col-md-9 f_grid3" style="overflow: hidden;">
+            <h3 class="font_bold" style="padding-left:25px;">精选店铺</h3>
+
+            <div class="col-md-12 dianpu">
+                <div class="col-md-2 top_grid1-box1">
+                    <a target="_blank" href="http://s.click.taobao.com/zNfGhVx">
+                        <div class="grid_1">
+                            <div class="b-link-stroke b-animate-go  thickbox">
+                                <img src="http://www.yangyi.com:81/Public/images/fengdian.jpg"
+                                     class="img_dianpu" alt="芬典服饰旗舰店"></div>
+                            <div class="grid_3">
+                                <p>芬典服饰旗舰店</p>
+                            </div>
                         </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-2 top_grid1-box1">
-                <a target="_blank" href="http://s.click.taobao.com/E2gGhVx">
-                    <div class="grid_1">
-                        <div class="b-link-stroke b-animate-go  thickbox">
-                            <img src="http://www.yangyi.com:81/Public/images/lizhimeiyi.jpg"
-                                 class="img_dianpu" alt="丽之美衣"></div>
-                        <div class="grid_3">
-                            <p>丽之美衣</p>
+                    </a>
+                </div>
+                <div class="col-md-2 top_grid1-box1">
+                    <a target="_blank" href="http://s.click.taobao.com/E2gGhVx">
+                        <div class="grid_1">
+                            <div class="b-link-stroke b-animate-go  thickbox">
+                                <img src="http://www.yangyi.com:81/Public/images/lizhimeiyi.jpg"
+                                     class="img_dianpu" alt="丽之美衣"></div>
+                            <div class="grid_3">
+                                <p>丽之美衣</p>
+                            </div>
                         </div>
-                    </div>
-                </a></div>
-            <div class="col-md-2 top_grid1-box1">
-                <a target="_blank" href="http://s.click.taobao.com/f2XGhVx">
-                    <div class="grid_1">
-                        <div class="b-link-stroke b-animate-go  thickbox">
-                            <img src="http://www.yangyi.com:81/Public/images/duoying.jpg"
-                                 class="img_dianpu" alt="朵莹旗舰店"></div>
-                        <div class="grid_3">
-                            <p>朵莹旗舰店</p>
+                    </a></div>
+                <div class="col-md-2 top_grid1-box1">
+                    <a target="_blank" href="http://s.click.taobao.com/f2XGhVx">
+                        <div class="grid_1">
+                            <div class="b-link-stroke b-animate-go  thickbox">
+                                <img src="http://www.yangyi.com:81/Public/images/duoying.jpg"
+                                     class="img_dianpu" alt="朵莹旗舰店"></div>
+                            <div class="grid_3">
+                                <p>朵莹旗舰店</p>
+                            </div>
                         </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-2 top_grid1-box1">
-                <a href="http://s.click.taobao.com/grUGhVx">
-                    <div class="grid_1">
-                        <div class="b-link-stroke b-animate-go  thickbox">
-                            <img src="http://www.yangyi.com:81/Public/images/shuixi.png"
-                                 class="img_dianpu" alt="水夕旗舰店"></div>
-                        <div class="grid_3">
-                            <p>水夕旗舰店</p>
+                    </a>
+                </div>
+                <div class="col-md-2 top_grid1-box1">
+                    <a href="http://s.click.taobao.com/grUGhVx">
+                        <div class="grid_1">
+                            <div class="b-link-stroke b-animate-go  thickbox">
+                                <img src="http://www.yangyi.com:81/Public/images/shuixi.png"
+                                     class="img_dianpu" alt="水夕旗舰店"></div>
+                            <div class="grid_3">
+                                <p>水夕旗舰店</p>
+                            </div>
                         </div>
-                    </div>
-                </a></div>
-            <div class="col-md-2 top_grid1-box1">
-                <a target="_blank" href="http://s.click.taobao.com/EtoefVx">
-                    <div class="grid_1">
-                        <div class="b-link-stroke b-animate-go  thickbox">
-                            <img src="http://www.yangyi.com:81/Public/images/mamadeyichu.jpg"
-                                 class="img_dianpu" alt="我和妈妈的衣橱"></div>
-                        <div class="grid_3">
-                            <p>我和妈妈的衣橱</p>
+                    </a></div>
+                <div class="col-md-2 top_grid1-box1">
+                    <a target="_blank" href="http://s.click.taobao.com/EtoefVx">
+                        <div class="grid_1">
+                            <div class="b-link-stroke b-animate-go  thickbox">
+                                <img src="http://www.yangyi.com:81/Public/images/mamadeyichu.jpg"
+                                     class="img_dianpu" alt="我和妈妈的衣橱"></div>
+                            <div class="grid_3">
+                                <p>我和妈妈的衣橱</p>
+                            </div>
                         </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-2 top_grid1-box1">
-                <a target="_blank" href="http://s.click.taobao.com/sjiafVx">
-                    <div class="grid_1">
-                        <div class="b-link-stroke b-animate-go  thickbox">
-                            <img src="http://www.yangyi.com:81/Public/images/jianggang.jpg"
-                                 class="img_dianpu" alt="简港旗舰店"></div>
+                    </a>
+                </div>
+                <div class="col-md-2 top_grid1-box1">
+                    <a target="_blank" href="http://s.click.taobao.com/sjiafVx">
+                        <div class="grid_1">
+                            <div class="b-link-stroke b-animate-go  thickbox">
+                                <img src="http://www.yangyi.com:81/Public/images/jianggang.jpg"
+                                     class="img_dianpu" alt="简港旗舰店"></div>
                             <div class="grid_3">
                                 <p>简港旗舰店</p>
                             </div>
-                    </div>
-                </a>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-12 dianpu1">
+                <div class="col-md-2 top_grid1-box1">
+                    <a target="_blank" href="http://s.click.taobao.com/zNfGhVx">
+                        <div class="grid_1">
+                            <div class="b-link-stroke b-animate-go  thickbox">
+                                <img src="http://www.yangyi.com:81/Public/images/fengdian.jpg"
+                                     class="img_dianpu" alt="芬典服饰旗舰店"></div>
+                            <div class="grid_3">
+                                <p>芬典服饰旗舰店1</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-2 top_grid1-box1">
+                    <a target="_blank" href="http://s.click.taobao.com/E2gGhVx">
+                        <div class="grid_1">
+                            <div class="b-link-stroke b-animate-go  thickbox">
+                                <img src="http://www.yangyi.com:81/Public/images/lizhimeiyi.jpg"
+                                     class="img_dianpu" alt="丽之美衣"></div>
+                            <div class="grid_3">
+                                <p>丽之美衣1</p>
+                            </div>
+                        </div>
+                    </a></div>
+                <div class="col-md-2 top_grid1-box1">
+                    <a target="_blank" href="http://s.click.taobao.com/f2XGhVx">
+                        <div class="grid_1">
+                            <div class="b-link-stroke b-animate-go  thickbox">
+                                <img src="http://www.yangyi.com:81/Public/images/duoying.jpg"
+                                     class="img_dianpu" alt="朵莹旗舰店"></div>
+                            <div class="grid_3">
+                                <p>朵莹旗舰店1</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-2 top_grid1-box1">
+                    <a href="http://s.click.taobao.com/grUGhVx">
+                        <div class="grid_1">
+                            <div class="b-link-stroke b-animate-go  thickbox">
+                                <img src="http://www.yangyi.com:81/Public/images/shuixi.png"
+                                     class="img_dianpu" alt="水夕旗舰店"></div>
+                            <div class="grid_3">
+                                <p>水夕旗舰店</p>
+                            </div>
+                        </div>
+                    </a></div>
+                <div class="col-md-2 top_grid1-box1">
+                    <a target="_blank" href="http://s.click.taobao.com/EtoefVx">
+                        <div class="grid_1">
+                            <div class="b-link-stroke b-animate-go  thickbox">
+                                <img src="http://www.yangyi.com:81/Public/images/mamadeyichu.jpg"
+                                     class="img_dianpu" alt="我和妈妈的衣橱"></div>
+                            <div class="grid_3">
+                                <p>我和妈妈的衣橱</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-2 top_grid1-box1">
+                    <a target="_blank" href="http://s.click.taobao.com/sjiafVx">
+                        <div class="grid_1">
+                            <div class="b-link-stroke b-animate-go  thickbox">
+                                <img src="http://www.yangyi.com:81/Public/images/jianggang.jpg"
+                                     class="img_dianpu" alt="简港旗舰店"></div>
+                            <div class="grid_3">
+                                <p>简港旗舰店</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
@@ -359,7 +496,8 @@
                 <li class="active"><a target="_blank" href="http://s.click.taobao.com/NIighVx">阿里旅行</a></li>
                 <li><a target="_blank" href="http://s.click.taobao.com/1fvtVWx">淘宝特卖</a></li>
                 <li><a target="_blank" href="http://s.click.taobao.com/BaS3WWx">爱淘宝</a></li>
-                <li><a target="_blank" href="http://s.click.taobao.com/t?e=m%3D2%26s%3Dt29T39DAnxMcQipKwQzePCperVdZeJviEViQ0P1Vf2kguMN8XjClAuLWUZBUjAimOhdZki1E67u1fVFitrT47Iy2CxZ%2FfR4X7%2FKVVelyWWhSgkhMxg%2FlBhmIkXBqRClNTcEU%2BDykfuSM%2BhtH71aX6uIOTs4KMj3yjpOyWSRdiSZDEm2YKA6YIrbIzrZDfgWtwGXLU4WXsy9VHjYc6ze3iXQfmeYHmozgLNmFwzcjFAU%3D">阿里云</a>
+                <li><a target="_blank"
+                       href="http://s.click.taobao.com/t?e=m%3D2%26s%3Dt29T39DAnxMcQipKwQzePCperVdZeJviEViQ0P1Vf2kguMN8XjClAuLWUZBUjAimOhdZki1E67u1fVFitrT47Iy2CxZ%2FfR4X7%2FKVVelyWWhSgkhMxg%2FlBhmIkXBqRClNTcEU%2BDykfuSM%2BhtH71aX6uIOTs4KMj3yjpOyWSRdiSZDEm2YKA6YIrbIzrZDfgWtwGXLU4WXsy9VHjYc6ze3iXQfmeYHmozgLNmFwzcjFAU%3D">阿里云</a>
                 </li>
             </ul>
         </div>

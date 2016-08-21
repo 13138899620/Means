@@ -1,0 +1,34 @@
+非泛型
+ArrayList
+HashTable 
+
+
+泛型
+List<T>
+Dictionary<Tkey,Tvalue>
+
+
+有序集合 链表
+SortedList<Tkey，Tvalue>
+
+
+先进先出 
+Queue
+添加 queue.Enqueue(item);
+输出 queue.Dequeue();
+
+
+先进后出
+Stack
+
+入栈 stack.Push(item);
+出栈 stack.Pop();
+返回栈顶对象 stack.Peek();
+
+
+Set 不包含重复元素
+HashSet,SortedSet
+
+
+双向链表
+LinkedList<T> 删除和修改比较快

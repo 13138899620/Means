@@ -1,0 +1,9 @@
+值类型（value type)，值类型实例通常分配在线程的堆栈（stack）上，并且不包含任何指向实例数据的指针，因为变量本身就包含了实例数据
+
+值类型包括，数值类型（整型），short,long,byte,char，float,double，boole,decimal,struct，enum
+
+
+引用类型（会在栈上分配一个对象的引用，会在堆上保存对象的实例）
+数组 array,object,string.class,interfack,delegate
+
+引用类型变量的赋值只是复制对对象的引用，而不是复制对象本身，而将一个值类型变量赋值给另一个值类型变量时，将包含复制的值！

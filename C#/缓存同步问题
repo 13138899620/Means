@@ -1,0 +1,7 @@
+并发不高的情况：
+读: 读redis->没有，读mysql->把mysql数据写回redis，有的话直接从redis中取；
+写: 写mysql->成功，再写redis；
+
+并发高的情况：
+读: 读redis->没有，读mysql->把mysql数据写回redis，有的话直接从redis中取；
+写：异步话，先写入redis的缓存，就直接返回；定期或特定动作将数据保存到mysql，可以做到多次更新，一次保存；
